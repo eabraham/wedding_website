@@ -7,4 +7,16 @@ class User < ActiveRecord::Base
 
   validate :role, inclusive: { in: VALID_ROLES }
 
+  def admin?
+  	return role == 'admin'
+  end
+
+  def guest?
+  	return role == 'guest'
+  end
+
+  def password_required?
+    super if self.admin?
+    false
+  end
 end

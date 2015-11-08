@@ -5,5 +5,32 @@
         <h1><a href="#">Eric and Asmita</a></h1>
       </li>
     </ul>
+    <section class="top-bar-section">
+    <ul class="right">
+      <% if current_user.nil? %>
+      <li class="has-dropdown">
+        <a href="#" class="alert button">Login</a>
+        <ul class="dropdown">
+          <li><input type="text" placeholder="email"></li>
+          <li><input type="password" placeholder="password"></li>
+        </ul>
+      </li>
+      <!--<li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="text" placeholder="email">
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#" class="alert button">Login</a>
+          </div>
+        </div>
+      </li>-->
+      <% else %>
+      <li class="">
+        <span>Welcome <%= current_user.full_name %></span>
+      </li>
+      <% end %>
+    </ul>
+    </section>
   </nav>
 </div>
