@@ -6,5 +6,7 @@ $(document).ready ->
     centerMode: true
     dots: true
     variableWidth: true
+    autoplay: true
+    autoplaySpeed: 3000
   })
   return
