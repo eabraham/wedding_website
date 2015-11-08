@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+  $('.slideshow').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+    centerMode: true
+    dots: true
+    variableWidth: true
+  })
+  return
