@@ -5,3 +5,6 @@ $(document).ready ->
     arrows: true,
     fade: true,
   });
+
+jQuery ($) ->
+  $('.swipebox').swipebox()
