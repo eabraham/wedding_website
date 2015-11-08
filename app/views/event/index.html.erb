@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <section id="cd-timeline" class="cd-container">
+      <% @events.each do |event| %>
+          <%= render 'event', :event => event %>
+      <% end %>
+    </section>
+  </div>
+</div>

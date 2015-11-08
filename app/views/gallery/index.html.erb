@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="large-12">
+	<div class="gallery">
+	  <% @images.each do |image| %>
+	  <div class="image">
+	  	<%= image_tag image.photo.url(:gallery) %>
+	  </div>
+	  <% end %>
+	</div>
+  </div>
+</div>

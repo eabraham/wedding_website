@@ -1,0 +1,16 @@
+<div class="cd-timeline-block">
+  <% icon = event.event_icon || 'picture' %>
+  <div class="cd-timeline-img cd-<%= icon %>">
+    <%= image_tag "cd-icon-#{icon}.svg" %>
+  </div>
+  <div class="cd-timeline-content">
+    <h2><%= event.title %></h2>
+    <%= image_tag event.image.photo.url(:event) if event.image%>
+    <p><%= event.description %></p>
+
+    <% if event.address %>
+      <a href="http://maps.google.com/maps?daddr=<%= URI.escape(event.address) %>" target="_blank" class="cd-read-more">Map</a>
+    <% end %>
+    <span class="cd-date"><%= event.format_event_date %></span>
+  </div>
+</div>

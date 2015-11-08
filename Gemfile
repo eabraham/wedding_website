@@ -8,9 +8,13 @@ gem 'pg'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'carrierwave'
+gem "rmagick"
+gem 'pry-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
+gem 'foundation-rails', '5.4.5'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

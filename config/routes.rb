@@ -1,4 +1,6 @@
 Ericandasmita::Application.routes.draw do
+  get "gallery/index"
+  get "event/index"
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "welcome#index"
