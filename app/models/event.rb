@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
-  belongs_to :image
-  accepts_nested_attributes_for :image, allow_destroy: true
+  has_many :images, as: :imageable
+  has_many :imageables, through: :images
+
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   VALID_EVENT_ICONS = ['picture', 'location', 'movie']
 

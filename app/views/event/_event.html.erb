@@ -5,11 +5,18 @@
   </div>
   <div class="cd-timeline-content">
     <h2><%= event.title %></h2>
-    <%= image_tag event.image.photo.url(:event) if event.image%>
+    <div class="gallery">
+  	  <% event.images.each_with_index do |image, i| %>
+    	  <div class="image">
+    	  	<a rel="gallery-<%= event.id %>" href="<%= image.photo.url %>" class="swipebox">
+    	  	<%= image_tag image.photo.url(:event) %>
+    	    </a>
+    	  </div>
+  	  <% end %>
+    </div>
     <p><%= event.description %></p>
-
     <% if event.address %>
-      <a href="http://maps.google.com/maps?daddr=<%= URI.escape(event.address) %>" target="_blank" class="cd-read-more">Map</a>
+      <a href="http://maps.google.com/maps?q=<%= URI.escape(event.address) %>" target="_blank" class="cd-read-more">Map</a>
     <% end %>
     <span class="cd-date"><%= event.format_event_date %></span>
   </div>

@@ -1,4 +1,5 @@
 Ericandasmita::Application.routes.draw do
+  get "wedding_party/index"
   get "gallery/index"
   get "event/index"
   devise_for :users, ActiveAdmin::Devise.config

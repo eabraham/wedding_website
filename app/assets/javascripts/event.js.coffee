@@ -1,3 +1,6 @@
+jQuery ($) ->
+  $('.swipebox').swipebox()
+
 jQuery(document).ready ($) ->
   timelineBlocks = $('.cd-timeline-block')
   offset = 0.8
@@ -27,3 +30,17 @@ jQuery(document).ready ($) ->
     ))
     return
   return
+
+$(document).ready ->
+  $('.gallery').slick(
+    lazyLoad: 'ondemand'
+    infinite: true
+    arrows: false
+    slidesToShow: 1
+    centerMode: true
+    variableWidth: true
+    slidesToScroll: 1
+  )
+
+
+  

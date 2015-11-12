@@ -17,7 +17,7 @@ ActiveAdmin.register User do
     column :email
     column :full_name
     column :role
-    column :current_sign_in_at
+    column :current_sign_in_atx
     column :sign_in_count
     column :created_at
     actions

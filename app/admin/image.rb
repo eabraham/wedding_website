@@ -13,8 +13,8 @@ ActiveAdmin.register Image do
 
   form(:html => { :multipart => true })  do |f|
     f.inputs "Admin Details" do
-      f.input :imageable_id
-      f.input :imageable_type
+      f.input :imageable_type, as: :select, collection: ActiveRecord::Base.descendants.map(&:to_s)
+      f.input :imageable_id, label: 'Imageable Id'
       f.input :photo, :for => :image, :as => :file
     end
     f.actions
