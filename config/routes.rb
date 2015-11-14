@@ -1,4 +1,5 @@
 Ericandasmita::Application.routes.draw do
+  get "rsvp" => 'rsvp#rsvp'
   get "wedding_party/index"
   get "gallery/index"
   get "event/index"
