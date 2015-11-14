@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112032612) do
+ActiveRecord::Schema.define(version: 20151114201847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20151112032612) do
     t.string   "address"
   end
 
+  create_table "guest_relationships", force: true do |t|
+    t.integer  "parent_id"
+    t.integer  "child_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", force: true do |t|
     t.integer  "imageable_id"
     t.string   "imageable_type"
@@ -76,6 +83,7 @@ ActiveRecord::Schema.define(version: 20151112032612) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "rsvp"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

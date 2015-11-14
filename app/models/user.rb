@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
@@ -6,6 +7,7 @@ class User < ActiveRecord::Base
   VALID_ROLES = [ 'admin', 'guest' ]
 
   validate :role, inclusive: { in: VALID_ROLES }
+  validate :full_name, presence: true
 
   def admin?
   	return role == 'admin'
@@ -18,5 +20,15 @@ class User < ActiveRecord::Base
   def password_required?
     super if self.admin?
     false
+  end
+
+  def children
+    relations = GuestRelationship.where(parent_id: self.id)
+    User.where(id: relations.map(&:child_id))
+  end
+
+  def parent
+    relations = GuestRelationship.where(child_id: self.id)
+    User.where(id: relations.first.parent_id)
   end
 end

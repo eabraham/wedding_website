@@ -1,10 +1,13 @@
 Ericandasmita::Application.routes.draw do
   get "rsvp" => 'rsvp#rsvp'
+  match "rsvp/submit", to: 'rsvp#submit', via: [:post]
   get "wedding_party/index"
   get "gallery/index"
   get "event/index"
+
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
   root :to => "welcome#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

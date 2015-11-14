@@ -5,23 +5,26 @@
 </div>
 <div class="row">
   <div class="small-12 large-12 columns">
-    <form data-abide>
+    <%= form_tag("rsvp/submit", method: "post") do %>
+      <input name="user_token" type="hidden" value="<%= @token %>">
       <div class="row">
         <div class="small-12 large-12 columns">
           Please select all guests who can attend our special day:
         </div>
       </div>
+      <% @users.each do |user| %>
       <div class="row rsvp-field switch round large">
-        <div class="small-8 large-4 columns"><%= @user.full_name %></div>
+        <div class="small-8 large-4 columns"><%= user.full_name %></div>
         <div class="small-4 large-8 columns">
-          <input id="user-<%= @user.id %>-rsvp-field" type="checkbox" name="user-<%= @user.id %>-rsvp">
-          <label for="user-<%= @user.id %>-rsvp-field"></label>
+          <input id="user-<%= user.id %>-rsvp-field" type="checkbox" name="user-<%= user.id %>-rsvp">
+          <label for="user-<%= user.id %>-rsvp-field"></label>
         </div>
       </div>
+      <% end %>
       <div class="row password-field">
         <div class="small-12 large-12 columns">
           <label>Password <small>required</small>
-            <input type="password"  id="password" name="password" required pattern="[a-zA-Z]+">
+            <input type="password"  id="password" name="password" required>
           </label>
           <small class="error">Passwords must be at least 8 characters with 1 capital letter, 1 number, and one special character.</small>
         </div>
@@ -35,6 +38,6 @@
         </div>
       </div>
       <button type="submit">Submit</button>
-    </form>
+    <% end %>
   </div>
 </div>
