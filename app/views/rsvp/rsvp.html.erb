@@ -5,8 +5,8 @@
 </div>
 <div class="row">
   <div class="small-12 large-12 columns">
-    <%= form_tag("rsvp/submit", method: "post") do %>
-      <input name="user_token" type="hidden" value="<%= @token %>">
+    <%= form_tag(:rsvp_submit, method: "post", data:{ abide: '' }) do %>
+      <input name="invite_code" type="hidden" value="<%= @token %>">
       <div class="row">
         <div class="small-12 large-12 columns">
           Please select all guests who can attend our special day:
@@ -21,18 +21,26 @@
         </div>
       </div>
       <% end %>
-      <div class="row password-field">
+      <div class="row email-field conditional-form">
+        <div class="small-12 large-12 columns">
+          <label>Email <small>required</small>
+            <input type="email"  id="email" name="email" required>
+          </label>
+          <small class="error">Must be a valid email address.</small>
+        </div>
+      </div>
+      <div class="row password-field conditional-form">
         <div class="small-12 large-12 columns">
           <label>Password <small>required</small>
-            <input type="password"  id="password" name="password" required>
+            <input type="password"  id="password" name="password" required pattern="[a-zA-Z]+">
           </label>
           <small class="error">Passwords must be at least 8 characters with 1 capital letter, 1 number, and one special character.</small>
         </div>
       </div>
-      <div class="row password-confirmation-field">
+      <div class="row password-confirmation-field conditional-form">
         <div class="small-12 large-12 columns">
           <label>Confirm Password <small>required</small>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <input type="password" id="confirmPassword" name="confirmPassword" required pattern="[a-zA-Z]+">
           </label>
           <small class="error">Passwords must match.</small>
         </div>

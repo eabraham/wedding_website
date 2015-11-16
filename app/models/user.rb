@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validate :role, inclusive: { in: VALID_ROLES }
   validate :full_name, presence: true
 
+  after_create :assign_invite_code
+
   def admin?
   	return role == 'admin'
   end
@@ -30,5 +32,12 @@ class User < ActiveRecord::Base
   def parent
     relations = GuestRelationship.where(child_id: self.id)
     User.where(id: relations.first.parent_id)
+  end
+
+  private
+
+  def assign_invite_code
+    invite_code = "#{id}#{(SecureRandom.random_number*100000).to_i}".to_i
+    save!
   end
 end
