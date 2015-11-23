@@ -1,3 +1,42 @@
+<!-- Mobile Nav -->
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title"></h1>
+      </section>
+
+      <section class="right-small">
+        <%= image_tag "ganesh.svg", class: "ganesh-logo" %>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Menu</label></li>
+        <li><%= link_to 'Home', :root %></li>
+        <li><%= link_to 'Our Story', :event_index %></li>
+        <li><%= link_to 'Wedding Party', :wedding_party_index %></li>
+        <li><%= link_to 'Big Day', '#' %></li>
+        <li><%= link_to 'Travel', '#' %></li>
+        <li><%= link_to 'Guestbook', '#' %></li>
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <!-- content goes here -->
+    </section>
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+<!-- End Mobile Nav -->
+<!-- Desktop Nav -->
 <div class="fixed">
   <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
     <ul class="title-area">
@@ -6,19 +45,42 @@
       </li>
     </ul>
     <section class="top-bar-section">
-    <ul class="right">
-      <% if current_user.nil? %>
-        <a href="#" data-reveal-id="myModal" class="alert button">RSVP</a>
-        <%= link_to 'Login', :rsvp_index, class: "alert button" %>
-      <% else %>
-      <li class="">
-        <span>Welcome <%= current_user.full_name %></span>
-      </li>
-      <% end %>
-    </ul>
+      <ul class="right">
+        <% if current_user.nil? %>
+          <a href="#" data-reveal-id="myModal" class="alert button">RSVP</a>
+          <%= link_to 'Login', :rsvp_index, class: "alert button" %>
+        <% else %>
+        <li class="">
+          <span>Welcome <%= current_user.full_name %></span>
+        </li>
+        <% end %>
+      </ul>
+    </section>
+    <section>
+      <div class="row center-nav">
+        <div class="large-2 medium-2 columns">
+          <%= link_to 'Home', :root %>
+        </div>
+        <div class="large-2 medium-2 columns">
+          <%= link_to 'Our Story', :event_index %>
+        </div>
+        <div class="large-2 medium-2 columns">
+          <%= link_to 'Wedding Party', :wedding_party_index %>
+        </div>
+        <div class="large-2 medium-2 columns">
+          <%= link_to 'Big Day', '#' %>
+        </div>
+        <div class="large-2 medium-2 columns">
+          <%= link_to 'Travel', '#' %>
+        </div>
+        <div class="large-2 medium-2 columns">
+          <%= link_to 'Guestbook', '#' %>
+        </div>
+      </div>
     </section>
   </nav>
 </div>
+<!-- End Desktop Nav -->
 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Please enter your invite code</h2>
   <%= form_tag(:rsvp_new, method: "get") do %>

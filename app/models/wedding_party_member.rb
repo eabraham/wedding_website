@@ -7,4 +7,5 @@ class WeddingPartyMember < ActiveRecord::Base
   validates :party_order, uniqueness: { scope: :bride_side }
 
   scope :alernating_party, -> { order("party_order asc, bride_side desc") }
+  scope :bride_then_groom, -> { order("bride_side desc, party_order asc") }
 end

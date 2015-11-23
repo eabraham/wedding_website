@@ -1,3 +1,49 @@
+@media only screen and (max-width: 40em) { 
+  div.fixed {
+    display: none;
+  }
+
+  img.ganesh-logo {
+    display:block;
+  }
+  div.off-canvas-wrap.move-right {
+    display: block;
+    height:100vh;
+    div.inner-wrap {
+      height:100vh;
+    }
+  }
+  img.ganesh-logo {
+    height:100%;
+  }
+  div.welcome-message {
+    z-index: -100;
+  }
+  body.welcome-page {
+    div.container {
+      height:initial;
+    }
+  }
+}
+@media only screen and (min-width: 40em) {
+  div.off-canvas-wrap {
+    display: none;
+  }
+  img.ganesh-logo {
+    height:7vw;
+    max-height:7vh;
+  }
+  div.container {
+    margin-top:10%;
+    margin-bottom:-10%;
+    height:90%;
+  }
+}
+
+.top-bar .row {
+  max-width: 62.5rem;
+}
+
 nav.top-bar {
   background-color: rgba(54, 25, 25, 0.0);
 }
@@ -11,12 +57,37 @@ ul.title-area > li.logo {
   padding:5px;
 }
 
-img.ganesh-logo {
-  height:80px;
-}
+
 
 div.alert-box {
   margin-bottom: 0px;
   margin-top: 15px;
   padding-left: 150px;
+}
+
+/*.top-bar-section li.nav-item {
+  background-color: rgba(54, 25, 25, 0.0);
+  width:10vw;
+  a {
+    font-size:20px;
+    background-color: rgba(54, 25, 25, 0.0)!important;
+  }
+}*/
+
+div.center-nav {
+  margin-top:5%;
+  a {
+    font-family: 'Oswald', sans-serif;  
+    color: #000;
+    font-size:20px;
+    /*text-shadow: 1px 0 0 #b3b3b3, 0 -1px 0 #b3b3b3, 0 1px 0 #b3b3b3, -1px 0 0 #b3b3b3;*/
+  }
+  div{
+    text-align:center;
+    border-right:1px solid #fff;
+  }
+  div[class*='column']:last-child {
+    border-right:none;
+    float:left;
+  }
 }

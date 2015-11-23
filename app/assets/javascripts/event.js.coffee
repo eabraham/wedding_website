@@ -1,7 +1,5 @@
-jQuery ($) ->
-  $('.swipebox').swipebox()
+$(document).ready ->
 
-jQuery(document).ready ($) ->
   timelineBlocks = $('.cd-timeline-block')
   offset = 0.8
   #hide timeline blocks which are outside the viewport
@@ -29,9 +27,8 @@ jQuery(document).ready ($) ->
       return
     ))
     return
-  return
 
-$(document).ready ->
+  $('.swipebox').swipebox()
   $('.gallery').slick(
     lazyLoad: 'ondemand'
     infinite: true
@@ -41,6 +38,8 @@ $(document).ready ->
     variableWidth: true
     slidesToScroll: 1
   )
+  return
+
 
 
   

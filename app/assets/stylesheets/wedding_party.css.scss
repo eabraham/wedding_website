@@ -10,3 +10,15 @@ div.wedding_party {
 div.headers {
   text-align: center;
 }
+@media only screen and (max-width: 40em) { 
+  //small screens
+  div.wedding_party-desktop {
+    display:none;
+  }
+}
+@media only screen and (min-width: 40em) {
+  //other screens
+  div.wedding_party-mobile {
+    display:none;
+  }
+}

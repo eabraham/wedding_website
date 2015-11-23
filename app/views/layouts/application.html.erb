@@ -28,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-  <body>
+  <body class="<%= @is_welcome ? 'welcome-page' : '' %>">
     <%= render "nav" %>
     <% if notice.present? %>
       <div class="alert-box"><%= notice %></div>
@@ -36,7 +36,9 @@
     <% if alert.present? %>
       <div class="alert-box alert"><%= alert %></div>
     <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
   </body>
 </html>
