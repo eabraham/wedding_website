@@ -1,4 +1,4 @@
-@media only screen and (max-width: 40em) { 
+@media only screen and (max-width: 64em) { 
   //small screens
   body.welcome-page{
     background-image: url('kayak.jpg');
@@ -58,7 +58,7 @@
   }
 
 }
-@media only screen and (min-width: 40em) {
+@media only screen and (min-width: 64.063em) {
   //other screens
   body.welcome-page{
   	background-image: url('kayak.jpg');

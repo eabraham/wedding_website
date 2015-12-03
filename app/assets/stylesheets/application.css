@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+ @media only screen and (max-width: 40em) { 
+  div.container{
+    z-index:-100;
+    position:absolute;
+    top:2.8125rem;
+  }
+}
