@@ -7,6 +7,8 @@ Ericandasmita::Application.routes.draw do
   get "gallery/index"
   get "event/index"
 
+  get "api/v1/notifications" => 'welcome#index'
+
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
