@@ -4,8 +4,8 @@ ActiveAdmin.register GuestRelationship do
   index do
     selectable_column
     id_column
-    column :parent
-    column :child
+    column :parent_id
+    column :child_id
     actions
   end
 
