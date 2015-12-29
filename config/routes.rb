@@ -1,5 +1,8 @@
 Ericandasmita::Application.routes.draw do
 
+  get "guestbook/index" => 'guestbook#index'
+  match "guestbook/submit", to: 'guestbook#create', via: [:post]
+
   get "rsvp/index" => 'rsvp#index'
   get "rsvp/new" => 'rsvp#rsvp'
   match "rsvp/submit", to: 'rsvp#submit', via: [:post]
