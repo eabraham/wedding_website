@@ -1,19 +1,21 @@
 <div class="row">
   <div class="small-12 large-12 columns">
-    <%= form_tag(:guestbook_submit, method: "post", data:{ abide: '' }) do %>
+    <%= form_tag(:guestbook_submit, method: "post", id: 'guestbook_form', data:{ abide: '' }) do %>
       <label for="guestbook-from-field">From:</label>
       <input id="guestbook-from-field" type="text" name="guestbook-from-field">
       <label for="guestbook-text-field">Well Wishes:</label>
-      <input id="guestbook-text-field" type="text" name="guestbook-text-field">
+      <textarea name="guestbook-text-field" form="guestbook_form"></textarea>
       <button type="submit">Submit</button>
-    <% end %>
+    <% end %>    
   </div>
 </div>
-<% @guestbooks.each do |guestbook| %>
+<% @guestbooks.order(created_at: :desc).each do |guestbook| %>
+<section class="message">
 <div class="row">
   <div class="small-12 large-12 columns">
   	<span>From: <%= guestbook.from %></span>
-    <p><%= guestbook.body %></p>
+    <p><%= guestbook.body.html_safe %></p>
   </div>
 </div>
+</section>
 <% end %>

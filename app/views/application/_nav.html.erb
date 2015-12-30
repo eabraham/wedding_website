@@ -23,7 +23,7 @@
         <li><%= link_to 'Wedding Party', :wedding_party_index %></li>
         <li><%= link_to 'Big Day', '#' %></li>
         <li><%= link_to 'Travel', '#' %></li>
-        <li><%= link_to 'Guestbook', '#' %></li>
+        <li><%= link_to 'Guestbook', :guestbook_index %></li>
       </ul>
     </aside>
 
@@ -37,8 +37,8 @@
 </div>
 <!-- End Mobile Nav -->
 <!-- Desktop Nav -->
-<div class="fixed">
-  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+<div class="other">
+  <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="logo">
         <%= image_tag "ganesh.svg", class: "ganesh-logo" %>
@@ -74,7 +74,7 @@
           <%= link_to 'Travel', '#' %>
         </div>
         <div class="large-2 medium-2 columns">
-          <%= link_to 'Guestbook', '#' %>
+          <%= link_to 'Guestbook', :guestbook_index %>
         </div>
       </div>
     </section>
