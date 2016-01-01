@@ -6,12 +6,11 @@ class RsvpController < ApplicationController
   end
 
   def wedding_rsvp
-
-  	user = User.find_by(invite_code: params[:invite_code])
+  	user = User.find_by(email: params[:email])
   	@users= [user] + user.children
-  	@token = params[:invite_code]
+  	@token = user.invite_code
   rescue Exception => e
-    flash[:notice] = "Invalid token, please contact hello@ericandasmita.com if you need help."
+    flash[:notice] = "Invalid email, do you have another email. Please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
   end
 
@@ -21,18 +20,17 @@ class RsvpController < ApplicationController
     @users= [user] + user.children
     @token = params[:invite_code]
   rescue Exception => e
-    flash[:notice] = "Invalid token, please contact hello@ericandasmita.com if you need help."
+    flash[:notice] = "Invalid email, do you have another email. Please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
   end
 
   def submit
-    if params[:email].nil?
+    if params[:password].nil?
       flash[:notice] = "Sorry you could not make the wedding."
       redirect_to '/'
       return
     end
    	user = User.find_by(invite_code: params[:invite_code])
-    user.email = params[:email]
     user.password = params[:password]
     user.password_confirmation = params[:password_confirmation]
     user.save

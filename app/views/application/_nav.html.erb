@@ -82,11 +82,12 @@
 </div>
 <!-- End Desktop Nav -->
 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Please enter your invite code</h2>
-  <%= form_tag(:rsvp_new, method: "get") do %>
+  <h2 id="modalTitle">Please enter your email address</h2>
+  <%= form_tag(:rsvp_new, method: "get", data:{ abide: '' }) do %>
    <div class="row user-token-field">
      <div class="small-12 large-12 columns">
-       <input type="text" id="invite_code" name="invite_code" required>
+       <input type="text" id="email" name="email" required pattern="email">
+       <small class="error">Must be formatted as an email.</small>
          <button type="submit">Submit</button>
       </div>
     </div>
