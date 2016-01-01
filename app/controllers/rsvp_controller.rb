@@ -1,15 +1,25 @@
 class RsvpController < ApplicationController
-  before_action :authenticate_user!, except: [:rsvp, :submit, :index]
+  before_action :authenticate_user!, except: [:wedding_rsvp, :submit, :index]
 
   def index
 
   end
 
-  def rsvp
+  def wedding_rsvp
 
   	user = User.find_by(invite_code: params[:invite_code])
   	@users= [user] + user.children
   	@token = params[:invite_code]
+  rescue Exception => e
+    flash[:notice] = "Invalid token, please contact hello@ericandasmita.com if you need help."
+    redirect_to '/'
+  end
+
+    def nyc_rsvp
+
+    user = User.find_by(invite_code: params[:invite_code])
+    @users= [user] + user.children
+    @token = params[:invite_code]
   rescue Exception => e
     flash[:notice] = "Invalid token, please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
@@ -21,22 +31,29 @@ class RsvpController < ApplicationController
       redirect_to '/'
       return
     end
-  	user = User.find_by(invite_code: params[:invite_code])
+   	user = User.find_by(invite_code: params[:invite_code])
     user.email = params[:email]
     user.password = params[:password]
     user.password_confirmation = params[:password_confirmation]
     user.save
 
-  	rsvped = []
-  	params.each do |param, value|
-  	  match = param.match(/user-([0-9]+)-rsvp/)
-      if match && value == "on"
-      	child_id = match[1]
-        rsvped << child_id
+    user_ids = params.map do |p|
+      match = p.to_s.match(/user-([0-9]+)-rsvp/)
+      if match
+        match[1]
+      else
+        nil
       end
-  	end
-    User.where(id: user.children.map(&:id) - rsvped).update_all(rsvp: false)
-  	User.where(id: rsvped).update_all(rsvp: true)
+    end.select(&:present?)
+    rsvped = []
+    user_ids.each do |user_id|
+      c_user = User.find(user_id)
+      c_user.rsvp = params["user-#{user_id}-rsvp"]
+      c_user.diet = params["user-#{user_id}-dr"]
+      c_user.age = params["user-#{user_id}-age"]
+      c_user.save!
+      rsvped << user_id
+    end
 
     sign_in(user)
   	flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?

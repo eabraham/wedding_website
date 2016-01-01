@@ -4,7 +4,7 @@ Ericandasmita::Application.routes.draw do
   match "guestbook/submit", to: 'guestbook#create', via: [:post]
 
   get "rsvp/index" => 'rsvp#index'
-  get "rsvp/new" => 'rsvp#rsvp'
+  get "rsvp/new" => 'rsvp#wedding_rsvp'
   match "rsvp/submit", to: 'rsvp#submit', via: [:post]
   get "wedding_party/index"
   get "gallery/index"
