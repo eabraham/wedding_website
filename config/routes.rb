@@ -5,6 +5,7 @@ Ericandasmita::Application.routes.draw do
 
   get "rsvp/index" => 'rsvp#index'
   get "rsvp/new" => 'rsvp#wedding_rsvp'
+  get "rsvp/nyc" => 'rsvp#nyc_rsvp'
   match "rsvp/submit", to: 'rsvp#submit', via: [:post]
   get "wedding_party/index"
   get "gallery/index"

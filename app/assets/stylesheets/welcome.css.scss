@@ -75,17 +75,17 @@
   div.welcome-message {
     position: absolute;
     left:50%;
-    top:20%;
+    top:35%;
     margin-left:-250px; 
     text-align: center;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     width:500px;
     height:100px;
 
     > div {
       font-size:80px;
-      color: #fff;
+      color: #000;
 
       font-family: 'Oswald', sans-serif;
       

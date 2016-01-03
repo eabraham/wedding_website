@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :role, :full_name
+  permit_params :email, :password, :password_confirmation, :role, :full_name, :group
 
   controller do
     def update
@@ -17,6 +17,7 @@ ActiveAdmin.register User do
     column :email
     column :full_name
     column :role
+    column :group
     column :current_sign_in_atx
     column :sign_in_count
     column :created_at
@@ -34,6 +35,7 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :email
       f.input :role, as: :select, collection: User::VALID_ROLES
+      f.input :group, as: :select, collection: User::GROUP.keys
       f.input :full_name
       f.input :password
       f.input :password_confirmation

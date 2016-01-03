@@ -10,18 +10,12 @@ class RsvpController < ApplicationController
   	@users= [user] + user.children
   	@token = user.invite_code
   rescue Exception => e
-    flash[:notice] = "Invalid email, do you have another email. Please contact hello@ericandasmita.com if you need help."
+    flash[:notice] = "Sorry we don't have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
   end
 
-    def nyc_rsvp
+  def nyc_rsvp
 
-    user = User.find_by(invite_code: params[:invite_code])
-    @users= [user] + user.children
-    @token = params[:invite_code]
-  rescue Exception => e
-    flash[:notice] = "Invalid email, do you have another email. Please contact hello@ericandasmita.com if you need help."
-    redirect_to '/'
   end
 
   def submit
@@ -54,7 +48,11 @@ class RsvpController < ApplicationController
     end
 
     sign_in(user)
-  	flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
-  	redirect_to '/'
+    if [:asmita_family_far, :asmita_family_far].include?(User::GROUP[current_user.group])
+      redirect_to '/rsvp/nyc'
+    else
+  	  flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
+  	  redirect_to '/'
+    end
   end
 end
