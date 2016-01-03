@@ -20,6 +20,10 @@
     
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/notify/0.4.0/notify.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/notify/0.4.0/styles/metro/notify-metro.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/notify/0.4.0/styles/metro/notify-metro.min.css"/>
+    
     <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -33,10 +37,12 @@
   <body class="<%= @is_welcome ? 'welcome-page' : '' %>">
     <%= render "nav" %>
     <% if notice.present? %>
-      <div class="alert-box"><%= notice %></div>
+      <script>$.notify("<%= notice %>",{ className: 'success', position: 'bottom right', arrowSize: 10});</script>
+      <!--<div class="alert-box"><%= notice %></div>-->
     <% end %>
     <% if alert.present? %>
-      <div class="alert-box alert"><%= alert %></div>
+      <script>$.notify("<%= alert %>",{ className: 'error', position: 'bottom right', arrowSize: 10});</script>
+      <!--<div class="alert-box alert"><%= alert %></div>-->
     <% end %>
     <div class="container">
       <%= yield %>
