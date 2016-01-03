@@ -35,7 +35,7 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :email
       f.input :role, as: :select, collection: User::VALID_ROLES
-      f.input :group, as: :select, collection: User::GROUP.keys
+      f.input :group, as: :select, collection: User::GROUPS.keys
       f.input :full_name
       f.input :password
       f.input :password_confirmation

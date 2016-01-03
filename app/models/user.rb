@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
   VALID_ROLES = [ 'admin', 'guest' ]
-  GROUPS = { asmita_family_far: 1, asmita_family_near: 2, asmita_friends: 3, eric_family: 4, eric_friends: 5}
+  GROUPS = [:asmita_family_far, :asmita_family_near, :asmita_friends, :eric_family, :eric_friends]
 
   validate :role, inclusive: { in: VALID_ROLES }
   validate :full_name, presence: true
@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   def password_required?
     super if self.admin?
     false
+  end
+
+  def group_name
+    GROUPS[self.group]
   end
 
   def children

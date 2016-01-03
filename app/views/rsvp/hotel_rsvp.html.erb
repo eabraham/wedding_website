@@ -5,46 +5,42 @@
 </div>
 <div class="row">
   <div class="small-12 large-12 columns">
-    <%= form_tag(:rsvp_submit, method: "post", data:{ abide: '' }) do %>
+    <%= form_tag(:rsvp_hotel_submit, method: "post", data:{ abide: '' }) do %>
       <input name="invite_code" type="hidden" value="<%= @token %>">
       <div class="row">
         <div class="small-12 large-12 columns">
-          Please select all guests who can attend our special day:
+          Please select which days you will be staying at the Downtown Marriot:
         </div>
       </div>
+      <div class="row rsvp-field">
+        <div class="small-3 large-3 columns">Name</div>
+        <div class="small-3 large-3 columns" <%= 'hidden' unless @friday %>>Friday May 27th</div>
+        <div class="small-3 large-3 columns" <%= 'hidden' unless @saturday %>>Saturday May 28th</div>
+        <div class="small-3 large-3 columns" <%= 'hidden' unless @sunday %>>Sunday May 29th</div>
+      </div>
       <% @users.each do |user| %>
-      <div class="row rsvp-field switch round large">
-        <div class="small-8 large-4 columns"><%= user.full_name %></div>
-        <div class="small-4 large-8 columns">
-          <input id="user-<%= user.id %>-rsvp-field" type="checkbox" name="user-<%= user.id %>-rsvp">
-          <label for="user-<%= user.id %>-rsvp-field"></label>
+      <div class="row">
+        <div class="small-3 large-3 columns rsvp-field"><%= user.full_name %></div>
+        <div class="small-3 large-3 columns rsvp-field" <%= 'hidden' unless @friday %>>
+          <select id="user-<%= user.id %>-friday-rsvp-field" name="user-<%= user.id %>-friday-rsvp">
+            <option value="0" selected>Declines with Regret</option>
+            <option value="1">Accepts with Pleasure</option>
+          </select>
+        </div>
+        <div class="small-3 large-3 columns rsvp-field" <%= 'hidden' unless @saturday %>>
+          <select id="user-<%= user.id %>-saturday-rsvp-field" name="user-<%= user.id %>-saturday-rsvp">
+            <option value="0" selected>Declines with Regret</option>
+            <option value="1">Accepts with Pleasure</option>
+          </select>
+        </div>
+        <div class="small-3 large-3 columns rsvp-field" <%= 'hidden' unless @sunday %>>
+          <select id="user-<%= user.id %>-sunday-rsvp-field" name="user-<%= user.id %>-sunday-rsvp">
+            <option value="0" selected>Declines with Regret</option>
+            <option value="1">Accepts with Pleasure</option>
+          </select>
         </div>
       </div>
       <% end %>
-      <div class="row email-field conditional-form">
-        <div class="small-12 large-12 columns">
-          <label>Email <small>required</small>
-            <input type="email"  id="email" name="email" required>
-          </label>
-          <small class="error">Must be a valid email address.</small>
-        </div>
-      </div>
-      <div class="row password-field conditional-form">
-        <div class="small-12 large-12 columns">
-          <label>Password <small>required</small>
-            <input type="password"  id="password" name="password" required pattern="[a-zA-Z]+">
-          </label>
-          <small class="error">Passwords must be at least 8 characters with 1 capital letter, 1 number, and one special character.</small>
-        </div>
-      </div>
-      <div class="row password-confirmation-field conditional-form">
-        <div class="small-12 large-12 columns">
-          <label>Confirm Password <small>required</small>
-            <input type="password" id="confirmPassword" name="confirmPassword" required pattern="[a-zA-Z]+">
-          </label>
-          <small class="error">Passwords must match.</small>
-        </div>
-      </div>
       <button type="submit">Submit</button>
     <% end %>
   </div>

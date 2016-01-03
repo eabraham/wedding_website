@@ -14,10 +14,6 @@ class RsvpController < ApplicationController
     redirect_to '/'
   end
 
-  def nyc_rsvp
-
-  end
-
   def submit
     if params[:password].nil?
       flash[:notice] = "Sorry you could not make the wedding."
@@ -48,11 +44,74 @@ class RsvpController < ApplicationController
     end
 
     sign_in(user)
-    if [:asmita_family_far, :asmita_family_far].include?(User::GROUP[current_user.group])
+    flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
+    if [:asmita_family_far, :asmita_family_far].include?(current_user.group_name)
       redirect_to '/rsvp/nyc'
     else
-  	  flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
   	  redirect_to '/'
     end
+  end
+
+  def hotel_rsvp
+    @users = [current_user] + current_user.children
+    @friday = current_user.group_name == :asmita_family_far
+    @saturday = [:asmita_family_far, :asmita_family_near].include?(current_user.group_name)
+    @sunday = @users.select { |u| u.brunch_rsvp || u.tour_rsvp || u.dinner_rsvp }.any?
+  end
+
+  def rsvp_hotel_submit
+    user_ids = params.map do |p|
+      match = p.to_s.match(/user-([0-9]+)-friday/)
+      if match
+        match[1]
+      else
+        nil
+      end
+    end.select(&:present?)
+    rsvped = []
+    user_ids.each do |user_id|
+      c_user = User.find(user_id)
+      c_user.hotel_friday = params["user-#{user_id}-friday-rsvp"]
+      c_user.hotel_saturday = params["user-#{user_id}-saturday-rsvp"]
+      c_user.hotel_sunday = params["user-#{user_id}-sunday-rsvp"]
+      c_user.save!
+      rsvped << user_id if c_user.hotel_friday || c_user.hotel_saturday || c_user.hotel_sunday
+    end
+
+    flash[:notice] = "RSVP complete. Thank you!"
+    redirect_to '/'
+  end
+
+  def nyc_rsvp
+    @users = [current_user] + current_user.children
+  end
+
+
+  def rsvp_nyc_submit
+
+    user_ids = params.map do |p|
+      match = p.to_s.match(/user-([0-9]+)-brunch/)
+      if match
+        match[1]
+      else
+        nil
+      end
+    end.select(&:present?)
+    rsvped = []
+    user_ids.each do |user_id|
+      c_user = User.find(user_id)
+      c_user.brunch_rsvp = params["user-#{user_id}-brunch"]
+      c_user.tour_rsvp = params["user-#{user_id}-tour"]
+      c_user.dinner_rsvp = params["user-#{user_id}-dinner"]
+      c_user.save!
+      rsvped << user_id if c_user.brunch_rsvp || c_user.tour_rsvp || c_user.dinner_rsvp
+    end
+    if rsvped.any?
+      flash[:notice] = "Can't wait to see you on Sunday."
+    else
+      flash[:notice] = "Sorry you could not make the festivities."
+    end
+
+    redirect_to '/rsvp/hotel'    
   end
 end
