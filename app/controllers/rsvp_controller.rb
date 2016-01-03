@@ -107,7 +107,7 @@ class RsvpController < ApplicationController
       rsvped << user_id if c_user.brunch_rsvp || c_user.tour_rsvp || c_user.dinner_rsvp
     end
     if rsvped.any?
-      flash[:notice] = "Can't wait to see you on Sunday."
+      flash[:notice] = "Cannot wait to see you on Sunday."
     else
       flash[:notice] = "Sorry you could not make the festivities."
     end
