@@ -9,7 +9,7 @@
     <% end %>    
   </div>
 </div>
-<% @guestbooks.order(created_at: :desc).each do |guestbook| %>
+<% @guestbooks.each do |guestbook| %>
 <section class="message">
 <div class="row">
   <div class="small-12 large-12 columns">

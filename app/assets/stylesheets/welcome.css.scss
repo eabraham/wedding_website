@@ -1,4 +1,4 @@
-@media only screen and (max-width: 64em) { 
+@media only screen and (max-width: 1125px) { 
   //small screens
   body.welcome-page{
     background-image: url('bench.jpg');
@@ -58,7 +58,7 @@
   }
 
 }
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 1125px) {
   //other screens
   body.welcome-page{
   	background-image: url('bench.jpg');

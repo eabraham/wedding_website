@@ -48,7 +48,7 @@
       <ul class="right">
         <% if current_user.nil? %>
           <a href="#" data-reveal-id="myModal" class="alert button">RSVP</a>
-          <%= link_to 'Login', :rsvp_index, class: "alert button" %>
+          <%= link_to 'Login', :sign_in, class: "alert button" %>
         <% else %>
         <li class="">
           <span>Welcome <%= current_user.full_name %></span>

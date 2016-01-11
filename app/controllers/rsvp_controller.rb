@@ -15,12 +15,18 @@ class RsvpController < ApplicationController
   end
 
   def submit
+    user = User.find_by(invite_code: params[:invite_code])
     if params[:password].nil?
+       HTTParty.post('http://textbelt.com/text', 
+                      body: { number: "9097062621",
+                              message: "#{user.full_name} has RSVPed with a No."
+                            }.to_json,
+                            headers: { 'Content-Type' => 'application/json'}
+                     )
       flash[:notice] = "Sorry you could not make the wedding."
       redirect_to '/'
       return
     end
-   	user = User.find_by(invite_code: params[:invite_code])
     user.password = params[:password]
     user.password_confirmation = params[:password_confirmation]
     user.save
@@ -42,6 +48,13 @@ class RsvpController < ApplicationController
       c_user.save!
       rsvped << user_id
     end
+
+    HTTParty.post('http://textbelt.com/text', 
+                  body: { number: "9097062621",
+                          message: "#{user.full_name} has RSVPed with a Yes."
+                        }.to_json,
+                        headers: { 'Content-Type' => 'application/json'}
+                 )
 
     sign_in(user)
     flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?

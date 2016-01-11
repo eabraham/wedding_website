@@ -16,6 +16,11 @@ Ericandasmita::Application.routes.draw do
 
   get "api/v1/notifications" => 'welcome#index'
 
+  devise_scope :user do
+    get "sign_in", to: "devise/sessions#new"
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
