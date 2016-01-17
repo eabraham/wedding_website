@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.10'
 
 gem 'pg'
-gem 'puma'
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
+end
 
 gem 'devise'
 gem 'cancancan', '~> 1.10'
@@ -52,3 +55,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+ruby "2.0.0"
