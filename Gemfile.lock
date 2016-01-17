@@ -197,6 +197,7 @@ DEPENDENCIES
   puma
   rails (= 4.0.10)
   rails_12factor
+  rails_serve_static_assets
   rmagick
   sass-rails (~> 4.0.2)
   sdoc
