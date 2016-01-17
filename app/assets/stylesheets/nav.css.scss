@@ -41,9 +41,13 @@
     max-height:7vh;
   }
   div.container {
-    margin-top:10%;
+    padding-top:5%;
     margin-bottom:-10%;
-    height:90%;
+    margin-right:auto;
+    margin-left:auto;
+    max-width:62.5rem;
+    height:100vh;
+    //background-color:rgba(134, 134, 134, 0.5);
   }
 }
 
@@ -52,7 +56,20 @@
 }
 
 nav.top-bar {
-  background-color: rgba(54, 25, 25, 0.0);
+  height:150px;
+  background-color: transparent;
+}
+body {
+  background: linear-gradient(rgba(204, 201, 218, 0.8), rgba(204, 201, 218, 0.8)), url('blk_bench.jpg');
+  background-size: cover;
+  background-position: top top;
+  height:75vh;
+  background-attachment:fixed;
+}
+body.welcome-page {
+  nav.top-bar {
+    background-color:rgba(255, 255, 255, 0.0);
+  }
 }
 body.f-topbar-fixed {
   padding-top:0px;

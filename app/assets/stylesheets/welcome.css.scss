@@ -61,12 +61,18 @@
 @media only screen and (min-width: 1125px) {
   //other screens
   body.welcome-page{
-  	background-image: url('bench.jpg');
-  	background-size: cover;
-  	background-position: top top;
-    height:75vh;
+    div.container{
+      background-color:transparent;
+    }
   }
-
+  body.welcome-page{
+    //background: linear-gradient(rgba(204, 201, 218, 0.4), rgba(204, 201, 218, 0.1)), url('blk_bench.jpg');
+    background-image: url('bench.jpg');
+    background-size: cover;
+    background-position: top top;
+    height:75vh;
+    background-attachment:fixed;
+  }
   .photo {
     img {
       width:100vw;
