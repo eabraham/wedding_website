@@ -12,7 +12,7 @@ class GuestbookController < ApplicationController
 
     if gb.save
       HTTParty.post('http://textbelt.com/text', 
-                    body: { number: "8485256609",
+                    body: { number: "9097062621",
                             message: "#{from} has posted a guestbook message. Please approve."
                           }.to_json,
                           headers: { 'Content-Type' => 'application/json'}
