@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.10'
 
 gem 'pg'
+gem 'puma'
 
 gem 'devise'
 gem 'cancancan', '~> 1.10'
