@@ -1,5 +1,7 @@
 Ericandasmita::Application.routes.draw do
 
+  get "travel/index"
+  get "big_day/index"
   get "guestbook/index" => 'guestbook#index'
   match "guestbook/submit", to: 'guestbook#create', via: [:post]
 
