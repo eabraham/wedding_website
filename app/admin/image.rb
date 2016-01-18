@@ -6,6 +6,7 @@ ActiveAdmin.register Image do
     id_column
     column :imageable_id
     column :imageable_type
+    column :aws_url
     column :photo
     column :created_at
     actions
@@ -15,6 +16,7 @@ ActiveAdmin.register Image do
     f.inputs "Admin Details" do
       f.input :imageable_type, as: :select, collection: ActiveRecord::Base.descendants.map(&:to_s)
       f.input :imageable_id, label: 'Imageable Id'
+      f.input :aws_url
       f.input :photo, :for => :image, :as => :file
     end
     f.actions
