@@ -9,7 +9,7 @@
   	  <% event.images.each_with_index do |image, i| %>
     	  <div class="image">
     	  	<a rel="gallery-<%= event.id %>" href="<%= image.photo.url %>" class="swipebox">
-    	  	<%= image_tag image.photo.url(:event) %>
+    	  	<%= image_tag image.photo.url(:event) || image.aws_url %>
     	    </a>
     	  </div>
   	  <% end %>
