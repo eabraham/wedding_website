@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem "rmagick"
 gem 'pry-rails'
 gem 'httparty'
+gem 'fog'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
