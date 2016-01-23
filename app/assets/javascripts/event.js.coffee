@@ -32,7 +32,7 @@ $(document).ready ->
   $('.gallery').slick(
     lazyLoad: 'ondemand'
     infinite: true
-    arrows: false
+    arrows: true
     slidesToShow: 1
     centerMode: true
     variableWidth: true

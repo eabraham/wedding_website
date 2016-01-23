@@ -486,3 +486,6 @@ header h1 {
     transform: translateX(0);
   }
 }
+.slick-prev:before, .slick-next:before {
+  color: #CCC9DA!important;
+}
