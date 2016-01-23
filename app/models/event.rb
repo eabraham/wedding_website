@@ -12,16 +12,16 @@ class Event < ActiveRecord::Base
   def format_event_date
     if (date_end - date_start) / 60 < 1
       # no time range
-      date_start.strftime("%B %e, %Y %l:%M %p")
+      date_start.strftime("%B %e, %Y")
    	elsif date_end.strftime('%j').to_i == date_start.strftime('%j').to_i 
       # time range same day
-      s = date_start.strftime("%B %e, %Y %l:%M %p")
+      s = date_start.strftime("%B %e, %Y")
       e = date_end.strftime("%l:%M %p")
       "#{s} - #{e}"
     else
       # time range different day
-      s = date_start.strftime("%B %e, %Y %l:%M %p")
-      e = date_end.strftime("%B %e, %Y %l:%M %p")
+      s = date_start.strftime("%B %e, %Y")
+      e = date_end.strftime("%B %e, %Y")
       "#{s} - #{e}"
    	end
   end

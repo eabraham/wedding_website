@@ -92,7 +92,7 @@ class RsvpController < ApplicationController
     end
 
     flash[:notice] = "RSVP complete. Thank you!"
-    redirect_to '/'
+    redirect_to :big_day_index
   end
 
   def nyc_rsvp
