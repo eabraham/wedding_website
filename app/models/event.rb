@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  VALID_EVENT_ICONS = ['picture', 'location', 'movie', 'plane', 'diamond', 'heart', 'menu']
+  VALID_EVENT_ICONS = ['picture', 'location', 'movie', 'plane', 'diamond', 'heart', 'menu', 'home']
 
   validate :date_start, :presence
   validate :date_end, :presence
