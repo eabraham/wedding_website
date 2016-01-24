@@ -1,4 +1,12 @@
 $body-bg: #7f8c97 !default;
 $alert-color: #DCAB68 !default;
 
+body {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+h2 {
+  font-family: 'Petit Formal Script', cursive !important;
+}
+
 @import "foundation";
