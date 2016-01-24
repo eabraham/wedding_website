@@ -1,5 +1,5 @@
 ActiveAdmin.register Event do
-  permit_params :date_start, :date_end, :event_icon, :address, :description
+  permit_params :date_start, :date_end, :event_icon, :address, :description, :title
 
   show do
     attributes_table do
