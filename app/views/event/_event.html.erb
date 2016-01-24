@@ -6,7 +6,7 @@
   <div class="cd-timeline-content">
     <h2><%= event.title %></h2>
     <div class="gallery">
-  	  <% event.images.each_with_index do |image, i| %>
+  	  <% event.images.order(:order).each_with_index do |image, i| %>
     	  <div class="image">
     	  	<a rel="gallery-<%= event.id %>" href="<%= image.photo.url %>" class="swipebox">
     	  	<%= image_tag image.photo.url(:event), style: "max-width:392px" %>

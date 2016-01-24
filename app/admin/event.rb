@@ -8,6 +8,7 @@ ActiveAdmin.register Event do
       row :date_end
       row :event_icon
       row :address
+      row :title
       row :description
       row :created_at
       row :updated_at
@@ -33,6 +34,7 @@ ActiveAdmin.register Event do
       f.input :date_start
       f.input :date_end
       f.input :address
+      f.input :title
       f.input :description
       f.input :event_icon, as: :select, collection: Event::VALID_EVENT_ICONS
     end
