@@ -44,7 +44,7 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :email
       f.input :role, as: :select, collection: User::VALID_ROLES
-      f.input :group, as: :select, collection: User::GROUPS
+      f.input :group, as: :select, collection: User::GROUPS.map{|a| [a, User::GROUPS.index(a)] }
       f.input :full_name
       f.input :password
       f.input :password_confirmation
