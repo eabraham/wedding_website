@@ -23,8 +23,8 @@ class RsvpController < ApplicationController
                             }.to_json,
                             headers: { 'Content-Type' => 'application/json'}
                      )
-      flash[:notice] = "Sorry you could not make the wedding."
-      redirect_to '/'
+      flash[:notice] = "Sorry you could not make the wedding. Please sign our guestbook."
+      redirect_to '/guestbook/index'
       return
     end
     user.password = params[:password]
