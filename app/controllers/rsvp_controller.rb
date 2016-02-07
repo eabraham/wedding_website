@@ -42,6 +42,7 @@ class RsvpController < ApplicationController
     rsvped = []
     user_ids.each do |user_id|
       c_user = User.find(user_id)
+      c_user.full_name = params["user-#{user_id}-name"] if params["user-#{user_id}-name"].present?
       c_user.rsvp = params["user-#{user_id}-rsvp"]
       c_user.diet = params["user-#{user_id}-dr"]
       c_user.age = params["user-#{user_id}-age"]
@@ -66,7 +67,7 @@ class RsvpController < ApplicationController
   end
 
   def hotel_rsvp
-    @users = [current_user] + current_user.children
+    @users = [current_user] + current_user.children.order(:is_child)
     @friday = current_user.group_name == :asmita_family_far
     @saturday = [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
     @sunday = @users.select { |u| u.brunch_rsvp || u.tour_rsvp || u.dinner_rsvp }.any?
@@ -96,7 +97,7 @@ class RsvpController < ApplicationController
   end
 
   def nyc_rsvp
-    @users = [current_user] + current_user.children
+    @users = [current_user] + current_user.children.order(:is_child)
   end
 
 
