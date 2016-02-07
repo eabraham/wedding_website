@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
   VALID_ROLES = [ 'admin', 'guest' ]
-  GROUPS = [:asmita_family_far, :asmita_family_near, :asmita_friends, :eric_family, :eric_friends]
+  GROUPS = [:asmita_family, :asmita_family_friend, :asmita_friends, :eric_family, :eric_friends]
 
   validate :role, inclusive: { in: VALID_ROLES }
   validate :full_name, presence: true

@@ -1,10 +1,7 @@
 <div class="wedding_party-desktop">
   <div class="row headers">
-    <div class="small-12 large-6 columns">
-      <h1>Bride Side</h1>
-    </div>
-    <div class="small-12 large-6 columns">
-      <h1>Groom Side</h1>
+    <div class="small-12 large-12 columns">
+      <h1>Bridal Party</h1>
     </div>
   </div>
   <div class="row">
@@ -13,68 +10,3 @@
     <% end %>
   </div>
 </div>
-<div class="wedding_party-mobile">
-  <div class="row headers">
-    <div class="small-12 medium-12 columns">
-      <h1>Bride Side</h1>
-    </div>
-  </div>
-  <% @wedding_party_mobile.each do |individual| %>
-  <% if individual.bride_side %>
-    <div class="row">
-      <div class="small-6 medium-6 large-2 columns">
-          <%= image_tag individual.images.first.photo.url(:thumb) if individual.images.any? %>
-        </div>
-        <div class="small-6 medium-6 large-4 columns">
-          <span class="bold"><%= "#{individual.name} -" %></span>
-          <span><%= individual.bio %></span>
-        </div>
-      </div>
-    <div>
-  <% end %>
-  <% end %>
-    <div class="row headers">
-    <div class="small-12 medium-12 columns">
-      <h1>Groom Side</h1>
-    </div>
-  </div>
-  <% @wedding_party_mobile.each do |individual| %>
-  <% if !individual.bride_side %>
-    <div class="row">
-      <div class="small-6 medium-6 large-2 columns">
-          <%= image_tag individual.images.first.photo.url(:thumb) if individual.images.any? %>
-        </div>
-        <div class="small-6 medium-6 large-4 columns">
-          <span class="bold"><%= "#{individual.name} -" %></span>
-          <span><%= individual.bio %></span>
-        </div>
-      </div>
-    <div>
-  <% end %>
-  <% end %>
-</div>
-<!--<div class="wedding_party-mobile">
-  <div class="row headers">
-    <div class="small-12 medium-12 large-6 columns">
-      <h1>Bride Side</h1>
-    </div>
-  </div>
-  <div class="row">
-    <% @wedding_party_mobile.each do |individual| %> 
-      <% if !individual.bride_side && individual.party_order == 0 %>
-      <div class="row headers">
-        <div class="small-12 medium-12 large-6 columns">
-          <h1>Groom Side</h1>
-        </div>
-      </div>
-      <% end %>
-        <div class="small-6 medium-6 large-2 columns">
-          <%= image_tag individual.images.first.photo.url(:thumb) if individual.images.any? %>
-        </div>
-        <div class="small-6 medium-6 large-4 columns">
-          <span class="bold"><%= "#{individual.name} -" %></span>
-          <span><%= individual.bio %></span>
-        </div>
-    <% end %>
-  </div>
-</div>-->

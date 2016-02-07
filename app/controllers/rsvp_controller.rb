@@ -7,7 +7,7 @@ class RsvpController < ApplicationController
 
   def wedding_rsvp
   	user = User.find_by(email: params[:email])
-  	@users= [user] + user.children
+  	@users= [user] + user.children.order(:is_child : :ASC)
   	@token = user.invite_code
   rescue Exception => e
     flash[:notice] = "Sorry we don't have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
@@ -58,7 +58,7 @@ class RsvpController < ApplicationController
 
     sign_in(user)
     flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
-    if [:asmita_family_far, :asmita_family_far].include?(current_user.group_name)
+    if [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
       redirect_to '/rsvp/nyc'
     else
   	  redirect_to '/'
@@ -68,7 +68,7 @@ class RsvpController < ApplicationController
   def hotel_rsvp
     @users = [current_user] + current_user.children
     @friday = current_user.group_name == :asmita_family_far
-    @saturday = [:asmita_family_far, :asmita_family_near].include?(current_user.group_name)
+    @saturday = [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
     @sunday = @users.select { |u| u.brunch_rsvp || u.tour_rsvp || u.dinner_rsvp }.any?
   end
 
