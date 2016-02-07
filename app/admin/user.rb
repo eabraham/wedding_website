@@ -19,7 +19,9 @@ ActiveAdmin.register User do
     column :email
     column :full_name
     column :role
-    column :group
+    column :group do |user|
+      user.group_name
+    end
     column :rsvp
     column :brunch_rsvp
     column :tour_rsvp
