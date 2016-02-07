@@ -4,9 +4,7 @@
       <h1>Bridal Party</h1>
     </div>
   </div>
-  <div class="row">
-    <% @wedding_party.each do |individual| %> 
+  <% @wedding_party.each do |individual| %> 
       <%= render 'individual', :individual => individual %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
