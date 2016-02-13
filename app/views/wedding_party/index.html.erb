@@ -4,7 +4,13 @@
       <h1>Bridal Party</h1>
     </div>
   </div>
-  <% @wedding_party.each do |individual| %> 
+  <% @wedding_party.each_with_index do |individual, index| %> 
+    <% if index.even? || index.zero? %>
+      <div class="row wedding-party">
+    <% end %>
       <%= render 'individual', :individual => individual %>
+    <% if index.odd? %>
+      </div>
+    <% end %>
   <% end %>
 </div>
