@@ -6,7 +6,7 @@
 <div class="row">
   <div class="small-12 large-12 columns">
     <%= form_tag(:rsvp_submit, method: "post", data:{ abide: '' }) do %>
-      <input name="invite_code" type="hidden" value="<%= @token %>">
+      <input name="invite_code" type="hidden" value="<%= @email %>">
       <div class="row">
         <div class="small-12 large-12 columns">
           Please select all guests who can attend our special day:
