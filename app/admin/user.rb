@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation, :role, :full_name, 
                 :group, :rsvp, :brunch_rsvp, :tour_rsvp, :dinner_rsvp, 
-                :hotel_friday, :hotel_saturday, :hotel_sunday, :is_child, :diet, :age
+                :hotel_friday, :hotel_saturday, :hotel_sunday, :is_child, :diet, :age, :room_detail
 
   controller do
     def update
@@ -29,6 +29,7 @@ ActiveAdmin.register User do
     column :hotel_friday
     column :hotel_saturday
     column :hotel_sunday
+    column :room_detail
     column :current_sign_in_atx
     column :sign_in_count
     column :created_at
@@ -57,6 +58,7 @@ ActiveAdmin.register User do
       f.input :hotel_friday
       f.input :hotel_saturday
       f.input :hotel_sunday
+      f.input :room_detail
       f.input :is_child
       f.input :diet
       f.input :age

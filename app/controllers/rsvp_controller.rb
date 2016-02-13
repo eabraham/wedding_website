@@ -9,7 +9,7 @@ class RsvpController < ApplicationController
   	@user = User.find_by(email: params[:email])
   	@users= [@user] + @user.children.order(:is_child)
   rescue Exception => e
-    flash[:notice] = "Sorry we don't have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
+    flash[:notice] = "Sorry we do not have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
   end
 
@@ -67,7 +67,7 @@ class RsvpController < ApplicationController
 
   def hotel_rsvp
     @users = [current_user] + current_user.children.order(:is_child)
-    @friday = current_user.group_name == :asmita_family_far
+    @friday = [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
     @saturday = [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
     @sunday = @users.select { |u| u.brunch_rsvp || u.tour_rsvp || u.dinner_rsvp }.any?
   end
@@ -87,6 +87,7 @@ class RsvpController < ApplicationController
       c_user.hotel_friday = params["user-#{user_id}-friday-rsvp"]
       c_user.hotel_saturday = params["user-#{user_id}-saturday-rsvp"]
       c_user.hotel_sunday = params["user-#{user_id}-sunday-rsvp"]
+      c_user.room_detail = params["room-details"]
       c_user.save!
       rsvped << user_id if c_user.hotel_friday || c_user.hotel_saturday || c_user.hotel_sunday
     end

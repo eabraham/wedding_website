@@ -22,19 +22,19 @@
       <div class="row">
         <div class="small-3 large-3 columns rsvp-field"><%= user.full_name %></div>
         <div class="small-3 large-3 columns rsvp-field">
-          <select id="user-<%= user.id %>-brunch-field" name="user-<%= user.id %>-brunch">
+          <select id="user-<%= user.id %>-brunch-field" name="user-<%= user.id %>-brunch" <%= user.rsvp ? '' : 'disabled' %>>
             <option value="0" selected>Declines with Regret</option>
             <option value="1">Accepts with Pleasure</option>
           </select>
         </div>
         <div class="small-3 large-3 columns rsvp-field">
-          <select id="user-<%= user.id %>-tour-field" name="user-<%= user.id %>-tour">
+          <select id="user-<%= user.id %>-tour-field" name="user-<%= user.id %>-tour" <%= user.rsvp ? '': 'disabled' %>>
             <option value="0" selected>Declines with Regret</option>
             <option value="1">Accepts with Pleasure</option>
           </select>
         </div>
         <div class="small-3 large-3 columns rsvp-field">
-          <select id="user-<%= user.id %>-dinner-field" name="user-<%= user.id %>-dinner">
+          <select id="user-<%= user.id %>-dinner-field" name="user-<%= user.id %>-dinner" <%= user.rsvp ? '': 'disabled' %>>
             <option value="0" selected>Declines with Regret</option>
             <option value="1">Accepts with Pleasure</option>
           </select>
