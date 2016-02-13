@@ -10,20 +10,6 @@ div.wedding-party {
     font-weight: bold;
   }
 } 
-wedding-party
-
 div.headers {
   text-align: center;
-}
-@media only screen and (max-width: 64em) { 
-  //small screens
-  div.wedding_party-desktop {
-    display:none;
-  }
-}
-@media only screen and (min-width: 64.063em) {
-  //other screens
-  div.wedding_party-mobile {
-    display:none;
-  }
 }
