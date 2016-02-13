@@ -1,5 +1,5 @@
 ActiveAdmin.register WeddingPartyMember do
-  permit_params :name, :bio, :bride_side, :party_order
+  permit_params :name, :bio, :bride_side, :party_order, :title
 
   index do
     selectable_column
@@ -7,6 +7,7 @@ ActiveAdmin.register WeddingPartyMember do
     column :name
     column :bio
     column :bride_side
+    column :title
     column :party_order
     column :created_at
     actions
@@ -14,6 +15,7 @@ ActiveAdmin.register WeddingPartyMember do
 
   filter :name
   filter :bio
+  filter :title
   filter :bride_side
   filter :party_order
   filter :created_at
@@ -22,6 +24,7 @@ ActiveAdmin.register WeddingPartyMember do
     f.inputs "Admin Details" do
       f.input :name
       f.input :bio
+      f.input :title
       f.input :bride_side
       f.input :party_order
     end
