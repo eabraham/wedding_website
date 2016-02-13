@@ -6,16 +6,15 @@ class RsvpController < ApplicationController
   end
 
   def wedding_rsvp
-  	user = User.find_by(email: params[:email])
+  	@user = User.find_by(email: params[:email])
   	@users= [user] + user.children.order(:is_child)
-  	@token = user.invite_code
   rescue Exception => e
     flash[:notice] = "Sorry we don't have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
   end
 
   def submit
-    user = User.find_by(invite_code: params[:invite_code])
+    user = User.find_by(email: params[:email])
     if params[:password].nil?
        HTTParty.post('http://textbelt.com/text', 
                       body: { number: "9097062621",
