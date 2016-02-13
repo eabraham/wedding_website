@@ -7,7 +7,7 @@ class RsvpController < ApplicationController
 
   def wedding_rsvp
   	@user = User.find_by(email: params[:email])
-  	@users= [user] + user.children.order(:is_child)
+  	@users= [@user] + @user.children.order(:is_child)
   rescue Exception => e
     flash[:notice] = "Sorry we don't have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
     redirect_to '/'
