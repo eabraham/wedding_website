@@ -5,12 +5,8 @@
     </div>
   </div>
   <% @wedding_party.each_with_index do |individual, index| %> 
-    <% if index.even? || index.zero? %>
-      <div class="row wedding-party">
-    <% end %>
-      <%= render 'individual', :individual => individual %>
-    <% if index.odd? %>
-      </div>
-    <% end %>
+    <div class="row wedding-party">
+      <%= render 'individual', :individual => individual, :index => index %>
+    </div>
   <% end %>
 </div>
