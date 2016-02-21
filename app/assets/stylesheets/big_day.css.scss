@@ -1,4 +1,10 @@
-img.big_day_photo {
+img.big_day_photo-left, img.big_day_photo-right {
 	padding: 5px;
 	background-color:#fff;
+}
+img.big_day_photo-right {
+  margin: 15px 0 15px 15px;
+}
+img.big_day_photo-left {
+  margin: 15px 15px 15px 0;
 }

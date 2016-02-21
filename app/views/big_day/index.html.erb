@@ -1,29 +1,85 @@
 <!-- row image left -->
 <div class="row">
-  <div class="small-5 large-5 columns">
-    <%= image_tag 'big_day_1.jpg', class: 'big_day_photo'%>
-    <img></img>
-  </div>
-  <div class="small-7 large-7 columns">
+  <div class="small-12 large-12 columns">
+    <%= image_tag 'big_day_1.jpg', class: 'big_day_photo-right', align: 'right' %>
     <p>
       <h2>Ceremony</h2>
     </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed interdum sem. Maecenas faucibus, turpis a pharetra feugiat, lorem tellus placerat leo, ut tincidunt felis justo id mi. Fusce laoreet ligula sapien, non condimentum lectus efficitur quis
+    <h3>Location and Time:</h3>
+    <p>Battery Gardens - Saturday May 28, 2016 at 5:30 pm</p>
+    <h3>Attire:</h3>
+    <p> Formal dress from either culture is appreciated. Battery Gardens’ outdoor patio can be susceptible to winds. A coat check will be provided. 
     </p>
+    <p>
+      Dr. Sanjib Mukherji, a friend of Asmita’s family for over 22 years, will officiate a traditional Vedic ceremony fused with American elements on the outdoor patio next to Battery Gardens.  During the Vedic period, marriage was defined as the union of a man and woman who intended to follow the path of righteousness and allowed to the couple to become householders which was the second of the four stages of life. Similar to American culture, the wedding revolves around the tradition that the bride’s family is giving the bride away in marriage to the groom and that he is supposed to provide for her in the next phase of their life. The giving away of the bride is considered a meritorious act for the bride’s family. Some parts of the ceremony will be spoken in Sanskrit to legitimize the union but the bride and groom’s vows will be in English.  The ceremony is anticipated to last an hour and will be moved indoors in case of inclement weather. 
+    </p>
+    <% if [:asmita_family, :eric_family].include?(current_user.group_name) %>
+    <p>
+      Please join us for extended family pictures directly after the ceremony at the mandap (dais). The order will be as follows: Eric’s paternal family members, Eric’s entire family, Eric’s maternal family members, Asmita’s paternal family members, Asmita’s entire family, and Asmita’s maternal family members. 
+    </p>
+    <% end %>
   </div>
 </div>
 <!-- row image right -->
 <div class="row">
-  <div class="small-7 large-7 columns">
+  <div class="small-12 large-12 columns">
+    <%= image_tag 'big_day_3.jpg', class: 'big_day_photo-left', align: 'left' %>
     <p>
       <h2>Reception</h2>
     </p>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed interdum sem. Maecenas faucibus, turpis a pharetra feugiat, lorem tellus placerat leo, ut tincidunt felis justo id mi. Fusce laoreet ligula sapien, non condimentum lectus efficitur quis
+      Please join us for a cocktail reception with hors d'oeuvres in the Battery Gardens Fine Dining Room immediately following the ceremony. Dinner and dancing will follow upstairs in the Harbor View Room. Both events will feature New American cuisine with some Indian elements. Please note that there is no time to change attire between the ceremony and reception.
     </p>
   </div>
-  <div class="small-5 large-5 columns">
-    <%= image_tag 'big_day_3.jpg', class: 'big_day_photo' %>
+</div>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <%= image_tag 'big_day_2.jpg', class: 'big_day_photo-left', align: 'right' %>
+    <p>
+      <h2>Post Wedding Brunch</h2>
+    </p>
+    <p>
+      <h3>Location:</h3><p>Battery Park Slip 6</p>
+      <h3>Time:</h3><p>Sunday May 29, 2016 at 9:30 am - 12:15 pm</p>
+      <h3>Attire:</h3><p>Casual to Smart Casual</p>
+      <p>
+        Please join us for brunch on the New York Water Taxi as we cruise around the sights of Lower Manhattan including the Statue of Liberty, Brooklyn Bridge, and Freedom Tower. Please arrive at the pier by 9:30 at the latest to embark on the vessel. A part of the boat is enclosed so there will be protection from inclement weather. 
+      </p>
+    </p>
   </div>
 </div>
+<% if [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <%= image_tag 'big_day_5.jpg', class: 'big_day_photo-left', align: 'left' %>
+    <p>
+      <h2>New York Bus Tour</h2>
+    </p>
+    <p>
+      <h3>Pickup Location:</h3><p>Battery Park Slip 6</p>
+      <h3>Dropoff Location:</h3><p>Drop off Downtown Marriott</p>
+      <h3>Time:</h3><p>Sunday May 29, 2016 at 12:15 - 4:15 pm</p>
+      <h3>Attire:</h3><p>Casual to Smart Casual</p>
+      Please join us for a tour of Downtown and Uptown Manhattan on a double decker bus. The tour will feature a tour guide from City Sightseeing and cover the Big Apple’s highlights. If you’ve seen Manhattan a thousand times from the ground or never seen it all, the tour will offer a different perspective with family and friends. Please note the bus will not make stops except for one bathroom break. The top section of the bus is not enclosed and inclement weather may require umbrellas or ponchos.
+    </p>
+  </div>
+</div>
+<% end %>
+<% if [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <%= image_tag 'big_day_4.jpg', class: 'big_day_photo-left', align: 'right' %>
+    <p>
+      <h2>Farewell Dinner</h2>
+    </p>
+    <p>
+      <h3>Location:</h3><p>Benares Tribeca - 45 Murray Street New York, New York </p>
+      <h3>Time:</h3><p>Sunday May 29, 2016 at 6:00 pm</p>
+      <h3>Attire:</h3><p>Smart Casual</p>
+      <p>
+        Please join us for a farewell dinner at Benares to thank you for the pleasure of your company at our wedding.  
+      </p>
+    </p>
+  </div>
+</div>
+<% end %>
