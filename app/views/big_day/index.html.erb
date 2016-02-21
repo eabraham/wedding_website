@@ -11,9 +11,9 @@
     <p> Formal dress from either culture is appreciated. Battery Gardens’ outdoor patio can be susceptible to winds. A coat check will be provided. 
     </p>
     <p>
-      Dr. Sanjib Mukherji, a friend of Asmita’s family for over 22 years, will officiate a traditional Vedic ceremony fused with American elements on the outdoor patio next to Battery Gardens.  During the Vedic period, marriage was defined as the union of a man and woman who intended to follow the path of righteousness and allowed to the couple to become householders which was the second of the four stages of life. Similar to American culture, the wedding revolves around the tradition that the bride’s family is giving the bride away in marriage to the groom and that he is supposed to provide for her in the next phase of their life. The giving away of the bride is considered a meritorious act for the bride’s family. Some parts of the ceremony will be spoken in Sanskrit to legitimize the union but the bride and groom’s vows will be in English.  The ceremony is anticipated to last an hour and will be moved indoors in case of inclement weather. 
+      Dr. Sanjib Mukherji, a friend of Asmita’s family for over 22 years, will officiate a traditional Vedic ceremony fused with American elements on the outdoor patio next to Battery Gardens. Similar to American culture, the wedding revolves around the tradition that the bride’s family is giving the bride away in marriage to the groom and that he is supposed to provide for her in the next phase of their life. Some parts of the ceremony will be spoken in Sanskrit to legitimize the union. The ceremony is anticipated to last an hour and will be moved indoors in case of inclement weather. 
     </p>
-    <% if [:asmita_family, :eric_family].include?(current_user.group_name) %>
+    <% if current_user.present? && [:asmita_family, :eric_family].include?(current_user.group_name) %>
     <p>
       Please join us for extended family pictures directly after the ceremony at the mandap (dais). The order will be as follows: Eric’s paternal family members, Eric’s entire family, Eric’s maternal family members, Asmita’s paternal family members, Asmita’s entire family, and Asmita’s maternal family members. 
     </p>
@@ -48,7 +48,7 @@
     </p>
   </div>
 </div>
-<% if [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+<% if current_user.present? && [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
 <div class="row">
   <div class="small-12 large-12 columns">
     <%= image_tag 'big_day_5.jpg', class: 'big_day_photo-left', align: 'left' %>
@@ -65,7 +65,7 @@
   </div>
 </div>
 <% end %>
-<% if [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+<% if current_user.present? && [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
 <div class="row">
   <div class="small-12 large-12 columns">
     <%= image_tag 'big_day_4.jpg', class: 'big_day_photo-left', align: 'right' %>
