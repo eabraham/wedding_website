@@ -1,17 +1,16 @@
 <!-- row image left -->
+<div class="section">
 <div class="row">
   <div class="small-12 large-12 columns">
     <%= image_tag 'big_day_1.jpg', class: 'big_day_photo-right', align: 'right' %>
     <p>
       <h2>Ceremony</h2>
     </p>
-    <h3>Location and Time:</h3>
-    <p>Battery Gardens - Saturday May 28, 2016 at 5:30 pm</p>
-    <h3>Attire:</h3>
+    <p class="sub-header"><a target="_blank" href="https://www.google.com/maps/dir//Battery+Gardens,+1+Battery+Pl,+New+York,+NY+10004,+United+States/@40.7014409,-74.0151395,15z/data=!4m12!1m3!3m2!1s0x0:0x44f0325720018cf!2sBattery+Gardens!4m7!1m0!1m5!1m1!1s0x89c25a12583fce4d:0x44f0325720018cf!2m2!1d-74.0151395!2d40.7014409">Battery Gardens</a> - Saturday May 28, 2016 at 5:30 pm</p>
     <p> Formal dress from either culture is appreciated. Battery Gardens’ outdoor patio can be susceptible to winds. A coat check will be provided. 
     </p>
     <p>
-      Dr. Sanjib Mukherji, a friend of Asmita’s family for over 22 years, will officiate a traditional Vedic ceremony fused with American elements on the outdoor patio next to Battery Gardens. Similar to American culture, the wedding revolves around the tradition that the bride’s family is giving the bride away in marriage to the groom and that he is supposed to provide for her in the next phase of their life. Some parts of the ceremony will be spoken in Sanskrit to legitimize the union. The ceremony is anticipated to last an hour and will be moved indoors in case of inclement weather. 
+      Dr. Sanjib Mukherji, a friend of Asmita’s family for over 22 years, will officiate a traditional Vedic ceremony fused with American elements on the outdoor patio next to Battery Gardens. Some parts of the ceremony will be spoken in Sanskrit to legitimize the union. The ceremony is anticipated to last an hour and will be moved indoors in case of inclement weather. 
     </p>
     <% if current_user.present? && [:asmita_family, :eric_family].include?(current_user.group_name) %>
     <p>
@@ -20,6 +19,8 @@
     <% end %>
   </div>
 </div>
+</div>
+<div class="section">
 <!-- row image right -->
 <div class="row">
   <div class="small-12 large-12 columns">
@@ -32,40 +33,45 @@
     </p>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 large-12 columns">
-    <%= image_tag 'big_day_2.jpg', class: 'big_day_photo-left', align: 'right' %>
-    <p>
-      <h2>Post Wedding Brunch</h2>
-    </p>
-    <p>
-      <h3>Location:</h3><p>Battery Park Slip 6</p>
-      <h3>Time:</h3><p>Sunday May 29, 2016 at 9:30 am - 12:15 pm</p>
-      <h3>Attire:</h3><p>Casual to Smart Casual</p>
+</div>
+<div class="section">
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      <%= image_tag 'big_day_2.jpg', class: 'big_day_photo-left', align: 'right' %>
       <p>
-        Please join us for brunch on the New York Water Taxi as we cruise around the sights of Lower Manhattan including the Statue of Liberty, Brooklyn Bridge, and Freedom Tower. Please arrive at the pier by 9:30 at the latest to embark on the vessel. A part of the boat is enclosed so there will be protection from inclement weather. 
+        <h2>Post Wedding Brunch</h2>
       </p>
-    </p>
+      <p>
+        <p class="sub-header"><a target="blank" href="https://www.google.com/maps/dir//22+Battery+Pl,+New+York,+NY+10004/@40.7044109,-74.0200875,17z/data=!4m13!1m4!3m3!1s0x89c25a1274a84025:0xd50c206dbdd5773d!2s22+Battery+Pl,+New+York,+NY+10004!3b1!4m7!1m0!1m5!1m1!1s0x89c25a1274a84025:0xd50c206dbdd5773d!2m2!1d-74.0178988!2d40.7044109">Battery Park Slip 6</a>  - Sunday May 29, 2016 at 9:30 am</p>
+        <p>Casual to Smart Casual</p>
+        <p>
+          Please join us for brunch on the New York Water Taxi as we cruise around the sights of Lower Manhattan including the Statue of Liberty, Brooklyn Bridge, and Freedom Tower. Please arrive at the pier by 9:30 at the latest to embark on the vessel. A part of the boat is enclosed so there will be protection from inclement weather. 
+        </p>
+      </p>
+    </div>
   </div>
 </div>
 <% if current_user.present? && [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
-<div class="row">
-  <div class="small-12 large-12 columns">
-    <%= image_tag 'big_day_5.jpg', class: 'big_day_photo-left', align: 'left' %>
-    <p>
-      <h2>New York Bus Tour</h2>
-    </p>
-    <p>
-      <h3>Pickup Location:</h3><p>Battery Park Slip 6</p>
-      <h3>Dropoff Location:</h3><p>Drop off Downtown Marriott</p>
-      <h3>Time:</h3><p>Sunday May 29, 2016 at 12:15 - 4:15 pm</p>
-      <h3>Attire:</h3><p>Casual to Smart Casual</p>
-      Please join us for a tour of Downtown and Uptown Manhattan on a double decker bus. The tour will feature a tour guide from City Sightseeing and cover the Big Apple’s highlights. If you’ve seen Manhattan a thousand times from the ground or never seen it all, the tour will offer a different perspective with family and friends. Please note the bus will not make stops except for one bathroom break. The top section of the bus is not enclosed and inclement weather may require umbrellas or ponchos.
-    </p>
+<div class="section">
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      <%= image_tag 'big_day_5.jpg', class: 'big_day_photo-left', align: 'left' %>
+      <p>
+        <h2>New York Bus Tour</h2>
+      </p>
+      <p>
+        <p class="sub-header"><a target="_blank" href="https://www.google.com/maps/dir//22+Battery+Pl,+New+York,+NY+10004/@40.7044109,-74.0200875,17z/data=!4m13!1m4!3m3!1s0x89c25a1274a84025:0xd50c206dbdd5773d!2s22+Battery+Pl,+New+York,+NY+10004!3b1!4m7!1m0!1m5!1m1!1s0x89c25a1274a84025:0xd50c206dbdd5773d!2m2!1d-74.0178988!2d40.7044109">Battery Park Slip 6</a> - Saturday May 29, 2016 at 12:15 - 4:15 pm</p>
+        <p>Casual to Smart Casual</p>
+        <p>
+          Please join us for a tour of Downtown and Uptown Manhattan on a double decker bus. The tour will feature a tour guide from City Sightseeing and cover the Big Apple’s highlights. If you’ve seen Manhattan a thousand times from the ground or never seen it all, the tour will offer a different perspective with family and friends. Please note the bus will not make stops except for one bathroom break. The top section of the bus is not enclosed and inclement weather may require umbrellas or ponchos.
+        </p>
+      </p>
+    </div>
   </div>
 </div>
 <% end %>
 <% if current_user.present? && [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+<div class="section">
 <div class="row">
   <div class="small-12 large-12 columns">
     <%= image_tag 'big_day_4.jpg', class: 'big_day_photo-left', align: 'right' %>
@@ -73,9 +79,8 @@
       <h2>Farewell Dinner</h2>
     </p>
     <p>
-      <h3>Location:</h3><p>Benares Tribeca - 45 Murray Street New York, New York </p>
-      <h3>Time:</h3><p>Sunday May 29, 2016 at 6:00 pm</p>
-      <h3>Attire:</h3><p>Smart Casual</p>
+      <p class="sub-header"><a target="_blank" href="https://www.google.com/maps/dir//45+Murray+St,+New+York,+NY+10007/@40.7143083,-74.0179297,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c25a18d4f34d75:0x7c6156e6073b5398!2m2!1d-74.0091724!2d40.7141993">Benares Tribeca</a> - Saturday May 29, 2016 at 6:00 pm</p>
+      <p>Casual to Smart Casual</p>
       <p>
         Please join us for a farewell dinner at Benares to thank you for the pleasure of your company at our wedding.  
       </p>

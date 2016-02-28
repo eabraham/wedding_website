@@ -1,10 +1,22 @@
 img.big_day_photo-left, img.big_day_photo-right {
-	padding: 5px;
-	background-color:#fff;
+  background-color:#fff;
+  padding: 5px;
+  width:386px;
 }
 img.big_day_photo-right {
   margin: 15px 0 15px 15px;
 }
 img.big_day_photo-left {
   margin: 15px 15px 15px 0;
+}
+div.section {
+    background-color: rgba(204, 201, 218, 1);
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    box-shadow: #A0A0A0 0px 3px 0px;
+    border-radius: 0.25em;
+}
+p.sub-header, p.sub-header > a {
+
+  font-family: 'Petit Formal Script', cursive !important;
 }
