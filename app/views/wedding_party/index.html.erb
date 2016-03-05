@@ -5,8 +5,10 @@
     </div>
   </div>
   <% @wedding_party.each_with_index do |individual, index| %> 
+    <div class="section">
     <div class="row wedding-party">
       <%= render 'individual', :individual => individual, :index => index %>
+    </div>
     </div>
   <% end %>
 </div>
