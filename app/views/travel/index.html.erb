@@ -7,7 +7,40 @@
         <h2>Hotel</h2>
       </p>
       <p>
-        We have reserved a block of rooms at the Marriott Downtown which can be booked through the following <a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=14462273" target="_blank">link.
+        <% if [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+          For those that have filled out the RSVP, hotel rooms at the Marriott Downtown will be provided for the number of nights requested and a booking confirmation will be sent to the login e-mail. 
+        <% else %>
+          We have reserved a block of rooms at the Marriott Downtown which can be booked through the following <a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=14462273" target="_blank">link.</a>
+        <% end %>
+      </p>
+      <h3>Hotel Parking</h3>
+      <p>     
+        Valet Parking is available at the hotel for $60 per day. Alternatively, parking is available at a cheaper rate at two lots on Albany Street. This <a href="http://nyc.bestparking.com/neighborhoods/financial-district-parking" target="_blank">site</a> provides guide to parking in the area.
+      </p>
+      <h3>Transportation from Major Airports</h3>
+      <p>     
+        For those arriving from airports, the Marriott Downtown is accessible in the following <a href="http://www.marriott.com/hotels/maps/travel/nycws-new-york-marriott-downtown/" target="_blank">ways</a>. We have included some guides from our own experience. 
+      </p>
+      <h4>Newark Liberty Airport (EWR)</h4>
+      <p>
+        <span class="bold">Uber (Convienient)</span> - The estimated fare for UberX is $41-$47.
+      </p>
+      <p>
+        <span class="bold">Public Transport (Economical)</span> -  The fare is $5.25 per person + $1 for a new metrocard. Take Bus 62 to Newark Penn Station. The fare is $1.50 per person and the bus offers no change. Follow the signs for the Path and purchase a Metrocard (yellow). Take the Path Train to World Trade Center. One way fare is $2.75. After exiting, World Trade Center walk to the hotel provided walking directions are available.
+      </p>
+      <h4>LaGuardia Airport (LGA)</h4>
+      <p>
+        <span class="bold">Uber (Convienient)</span> - The estimated fare for UberX is $37-$49. 
+      </p>
+      <p>
+        <span class="bold">Public Transport (Economical)</span> -  The fare is $2.75 per person + $1 for a new metrocard. Take bus Q70 from La Guardia to 74 St/Roosevelt Subway Stop, connect to the E train and get off at the World Trade Center stop. Walk 8 min to the hotel provides walking directions are available. More routes are available <a href="http://web.mta.info/nyct/service/airport.htm" target="_blank">here but this has the best signage.</a>
+      </p>
+      <h4>John F. Kennedy Airport (JFK)</h4>
+      <p>
+        <span class="bold">Taxi (Convienient)</span> - There is a flat fare of $52 before tolls, tax, and gratuity. Read more  <a href="http://www.panynj.gov/airports/jfk-taxi-car-van-service.html" target="_blank">here</a>.
+      </p>
+      <p>
+        <span class="bold">Public Transport (Economical)</span> -  The fare is $7.75 per person + $1 for a new metrocard. Follow signs for the AirTrain from your terminal and board a Howard Beach bound AirTrain. Exit the AirTrain at Howard Beach, purchase a metrocard with at least $7.75 fare, and connect to the NYC subway. Take the A train to Manhattan and exit at the Chambers Street stop. Walk 8 minutes to the hotel provided walking directions are available. This is a very straightforward and well signed route up to Chambers Street.
       </p>
     </div>
   </div>
@@ -18,11 +51,31 @@
     <div class="small-12 large-12 columns">
       <%= image_tag 'subway.jpg', class: 'big_day_photo-right', align: 'right' %>
       <p>
-        <h2>Transportation to the Ceremony</h2>
+        <h2>Transportation in NYC</h2>
+      </p>
+      <h3>Subway</h3>
+      <p>
+        <span class="bold">Fares</span> - $2.75 per ride regardless of distance or $31 for unlimited rides for 7 days. Metrocard (http://web.mta.info/metrocard/)  - Reusable and refillable card needed to enter the subway. $1 charge for a new card but it can be shared legally if you pay per ride. To share a card, the first person swipes and enters and gives it to the next person who swipes and enters. 
       </p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed interdum sem. Maecenas faucibus, turpis a pharetra feugiat, lorem tellus placerat leo, ut tincidunt felis justo id mi. Fusce laoreet ligula sapien, non condimentum lectus efficitur quis
+        <span class="bold">Navigation</span> - Newer subway cars list and call out stops while older ones do not and require one to pay attention to the station signs. Downtown trains or trains going to Brooklyn are going south. Uptown trains or trains going to Queens are going North. 
       </p>
+      <p>
+        <a href="http://web.mta.info/maps/submap.html" target="_blank">Map</a> - As a rule of thumb, it usually takes 2 minutes to the next stop. 
+      </p>
+      <h3>Uber</h3>
+      <p>
+        For those unfamiliar with Uber, it is an app that you download on your Iphone or Android device. After downloading, the app will direct you how to use it. If it is your first ride, you can enter the following code to get a [NEED UBER CODE] off your ride. (Full disclosure - we get a discount if you use this code). It does not work if you do not have a suitable device. For <a href="https://www.uber.com/cities/new-york/?int=a" target="_blank">estimates</a>. 
+      </p>
+      <h3>Taxi</h3>
+      <p>
+        New York City does not charge fees to use a credit card and drivers expect 20% gratuity. Cabs can be hailed from the street. 
+      </p>
+      <h3>Walking</h3>
+      <p>
+         New York is very walkable and each block only takes about a minute to walk. 
+      </p>
+      
     </div>
   </div>
 </div>
@@ -35,7 +88,40 @@
         <h2>Things to Do in NYC</h2>
       </p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed interdum sem. Maecenas faucibus, turpis a pharetra feugiat, lorem tellus placerat leo, ut tincidunt felis justo id mi. Fusce laoreet ligula sapien, non condimentum lectus efficitur quis
+        If you are looking for additional things to do, <a href="http://www.tripadvisor.com/Attractions-g60763-Activities-New_York_City_New_York.html" target="_blank">Trip Advisor</a> is a good resource for figuring out what is worth visiting. Additionally, here are our thoughts on New York’s attractions.
+      </p>
+      <% if [:asmita_family, :asmita_family_friend].include?(current_user.group_name) %>
+      <p>
+        If you’re joining us for the bus or boat tour, we’ll take you past most of New York’s iconic attractions. The boat will get pretty close to the Status of Liberty which in our opinion is enough.
+      </p>
+      <% end %>
+      <h3>Art Museums</h3>
+      <p>
+        Some art museums are pay what you wish and others have free days. Check this <a href="http://www.nyc-arts.org/collections/35/free-museum-days-or-pay-what-you-wish" target="_blank">link</a> to see if any of the musuems you are interested in have any policies.
+      </p>
+      <h3>Intrepid Museum</h3>
+      <p>
+        One of Eric’s favorite muesums in the city. The <a href="http://www.intrepidmuseum.org/" target="_blank">museum</a> is located on an aircraft carrier and has exhibits featuring military planes and the Enterprise space shuttle. Buy tickets online beforehand to avoid long queues. 
+      </p>
+      <h3>Scenic Vistas</h3>
+      <p>
+        The Empire State Building, Top of the Rock, and One World Trade Center all offer great views of the New York skyline. If you visit one, you’ve visited all three in many New Yorker’s opinions.  
+      </p>
+      <h3>Favorite Free Attractions</h3>
+      <p>
+        Walk on the Highline, Walk in Central Park, and Walk around Times Square at night.
+      </p>
+      <h3>Favorite Neighborhoods</h3>
+      <p>
+        East, West, and Greenwich Village
+      </p>
+      <h3>Attractions Near the Hotel</h3>
+      <p>
+        One World Observatory, Memorial Pools, Wall St, the Bull, Battery Park, Statue of Liberty, South Street Seaport, Walk the Brooklyn Bridge.
+      </p>
+      <h3>Broadway</h3>
+      <p>
+        For those unfamiliar with Broadway, we recommend Wicked or Aladdin. For those who’ve seen quite a few shows, checkout this <a href="http://broadwayforbrokepeople.com/" target="_blank">website</a> for a list of shows and how to get cheaper tickets.
       </p>
     </div>
   </div>

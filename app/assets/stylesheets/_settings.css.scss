@@ -5,8 +5,12 @@ body {
   font-family: 'Raleway', sans-serif !important;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Petit Formal Script', cursive !important;
 }
+
+span.bold {
+	font-weight: bold;
+} 
 
 @import "foundation";
