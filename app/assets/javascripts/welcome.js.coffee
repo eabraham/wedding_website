@@ -1,5 +1,7 @@
 $(document).ready ->
-  introJs().start();
+  #debugger
+  if (window.location.pathname == '/')
+    introJs().start()
 
   $('.slideshow').slick({
     infinite: true,

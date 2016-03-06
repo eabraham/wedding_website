@@ -62,11 +62,11 @@
   <body class="<%= @is_welcome ? 'welcome-page' : '' %>">
     <%= render "nav" %>
     <% if notice.present? %>
-      <script>$.notify("<%= notice %>",{ className: 'success', position: 'top left', arrowSize: 10, autoHideDelay: 1000});</script>
+      <script>$.notify("<%= notice %>",{ className: 'success', position: 'top left', arrowSize: 10, autoHideDelay: 5000});</script>
       <!--<div class="alert-box"><%= notice %></div>-->
     <% end %>
     <% if alert.present? %>
-      <script>$.notify("<%= alert %>",{ className: 'error', position: 'top left', arrowSize: 10, autoHideDelay: 1000});</script>
+      <script>$.notify("<%= alert %>",{ className: 'error', position: 'top left', arrowSize: 10, autoHideDelay: 5000});</script>
       <!--<div class="alert-box alert"><%= alert %></div>-->
     <% end %>
     <div class="container">

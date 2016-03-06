@@ -1,8 +1,12 @@
 $body-bg: #7f8c97 !default;
 $alert-color: #DCAB68 !default;
 
-body {
+body, .raleway {
   font-family: 'Raleway', sans-serif !important;
+}
+
+.oswald {
+  font-family: 'Oswald', sans-serif !important;
 }
 
 h1, h2, h3, h4 {
