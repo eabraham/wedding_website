@@ -56,7 +56,7 @@
         <% end %>
       </ul>
     </section>
-    <% if current_page?(:controller => 'rsvp', :action => 'nyc_rsvp') || current_page?(:controller => 'rsvp', :action => 'hotel_rsvp') %>
+    <% if (['/rsvp/new','/rsvp/hotel','/rsvp/nyc'].include?(request.path.to_s)) %>
       <!-- Hide nav when in RSVP workflow -->
     <% else %>
     <section>
