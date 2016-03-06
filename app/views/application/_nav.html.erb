@@ -56,6 +56,9 @@
         <% end %>
       </ul>
     </section>
+    <% if current_page?(:controller => 'rsvp', :action => 'nyc_rsvp') || current_page?(:controller => 'rsvp', :action => 'hotel_rsvp') %>
+      <!-- Hide nav when in RSVP workflow -->
+    <% else %>
     <section>
       <div class="row center-nav">
         <div class="large-2 medium-2 columns">
@@ -78,6 +81,7 @@
         </div>
       </div>
     </section>
+    <% end %>
   </nav>
 </div>
 <!-- End Desktop Nav -->

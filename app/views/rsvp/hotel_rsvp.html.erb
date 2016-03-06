@@ -1,6 +1,5 @@
 <div class="row">
   <div class="small-12 large-12 columns"> 
-  Add welcome text
   </div>
 </div>
 <div class="row">
@@ -9,41 +8,43 @@
       <input name="invite_code" type="hidden" value="<%= @token %>">
       <div class="row">
         <div class="small-12 large-12 columns">
-          Please select which days you will be staying at the Downtown Marriot:
+          <p>
+            As an honored guest, we would like to offer you complementary accomodations at the New York Marriot Downtown. We will send confirmation within 48 hours. Please select which days you will be staying.
+          </p>
         </div>
       </div>
       <div class="row rsvp-field">
-        <div class="small-3 large-3 columns">Name</div>
-        <div class="small-3 large-3 columns" <%= 'hidden' unless @friday %>>Friday May 27th</div>
-        <div class="small-3 large-3 columns" <%= 'hidden' unless @saturday %>>Saturday May 28th</div>
-        <div class="small-3 large-3 columns" <%= 'hidden' unless @sunday %>>Sunday May 29th</div>
+        <div class="small-3 large-3 columns"><h4>Name</h4></div>
+        <div class="small-3 large-3 columns" <%= 'hidden' unless @friday %>><h4>Fri May 27th</h4></div>
+        <div class="small-3 large-3 columns" <%= 'hidden' unless @saturday %>><h4>Sat May 28th</h4></div>
+        <div class="small-3 large-3 columns" <%= 'hidden' unless @sunday %>><h4>Sun May 29th</h4></div>
       </div>
       <% @users.each do |user| %>
       <div class="row">
-        <div class="small-3 large-3 columns rsvp-field"><%= user.full_name %></div>
+        <div class="small-3 large-3 columns rsvp-field"><h4><%= user.full_name %></h4></div>
         <div class="small-3 large-3 columns rsvp-field" <%= 'hidden' unless @friday %>>
           <select id="user-<%= user.id %>-friday-rsvp-field" name="user-<%= user.id %>-friday-rsvp" <%= user.rsvp ? '' : 'disabled' %>>
-            <option value="0" selected>Declines with Regret</option>
-            <option value="1">Accepts with Pleasure</option>
+            <option value="0" selected>No room needed</option>
+            <option value="1">Yes, I will be staying</option>
           </select>
         </div>
         <div class="small-3 large-3 columns rsvp-field" <%= 'hidden' unless @saturday %>>
           <select id="user-<%= user.id %>-saturday-rsvp-field" name="user-<%= user.id %>-saturday-rsvp" <%= user.rsvp ? '' : 'disabled' %>>
-            <option value="0" selected>Declines with Regret</option>
-            <option value="1">Accepts with Pleasure</option>
+            <option value="0" selected>No room needed</option>
+            <option value="1">Yes, I will be staying</option>
           </select>
         </div>
         <div class="small-3 large-3 columns rsvp-field" <%= 'hidden' unless @sunday %>>
           <select id="user-<%= user.id %>-sunday-rsvp-field" name="user-<%= user.id %>-sunday-rsvp" <%= user.rsvp ? '' : 'disabled' %>>
-            <option value="0" selected>Declines with Regret</option>
-            <option value="1">Accepts with Pleasure</option>
+            <option value="0" selected>No room needed</option>
+            <option value="1">Yes, I will be staying</option>
           </select>
         </div>
       </div>
       <% end %>
       <div class="row">
         <div class="small-3 large-3 columns rsvp-field">
-          Room Request
+          <h4>Room Request</h4>
         </div>
         <div class="small-9 large-9 columns">
           <input type="text"  id="room-details" name="room-details" placeholder="double beds, single beds, etc.">

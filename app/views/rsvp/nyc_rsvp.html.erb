@@ -1,6 +1,8 @@
 <div class="row">
   <div class="small-12 large-12 columns"> 
-  Add welcome text
+    <p>
+
+    </p>
   </div>
 </div>
 <div class="row">
@@ -9,18 +11,20 @@
       <input name="invite_code" type="hidden" value="<%= @token %>">
       <div class="row">
         <div class="small-12 large-12 columns">
-          Please select all guests who can attend the Sunday festivities:
+          <p>
+            On Sunday May 29th there will be additional events, we would like to invite you to attend a boat brunch, a bus tour of NYC and an Indian dinner.  After completing the RSVP, details for each event can be found on the Big Day page of this site.
+          </p>
         </div>
       </div>
       <div class="row rsvp-field">
-        <div class="small-3 large-3 columns">Name</div>
-        <div class="small-3 large-3 columns">Sunday Brunch</div>
-        <div class="small-3 large-3 columns">Bus Tour</div>
-        <div class="small-3 large-3 columns">Dinner</div>
+        <div class="small-3 large-3 columns"><h4>Name</h4></div>
+        <div class="small-3 large-3 columns"><h4>Sunday Brunch</h4></div>
+        <div class="small-3 large-3 columns"><h4>Bus Tour</h4></div>
+        <div class="small-3 large-3 columns"><h4>Dinner</h4></div>
       </div>
       <% @users.each do |user| %>
       <div class="row">
-        <div class="small-3 large-3 columns rsvp-field"><%= user.full_name %></div>
+        <div class="small-3 large-3 columns rsvp-field"><h4><%= user.full_name %></h4></div>
         <div class="small-3 large-3 columns rsvp-field">
           <select id="user-<%= user.id %>-brunch-field" name="user-<%= user.id %>-brunch" <%= user.rsvp ? '' : 'disabled' %>>
             <option value="0" selected>Declines with Regret</option>

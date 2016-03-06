@@ -16,12 +16,15 @@ class RsvpController < ApplicationController
   def submit
     user = User.find_by(email: params[:email])
     if params[:password].nil?
+      begin
        HTTParty.post('http://textbelt.com/text', 
                       body: { number: "9097062621",
                               message: "#{user.full_name} has RSVPed with a No."
                             }.to_json,
-                            headers: { 'Content-Type' => 'application/json'}
-                     )
+                            headers: { 'Content-Type' => 'application/json'}, timeout: 1)
+      rescue => e
+        # don't fail transaction
+      end
       flash[:notice] = "Sorry you could not make the wedding. Please sign our guestbook."
       redirect_to '/guestbook/index'
       return
@@ -49,12 +52,15 @@ class RsvpController < ApplicationController
       rsvped << user_id
     end
 
-    HTTParty.post('http://textbelt.com/text', 
-                  body: { number: "9097062621",
-                          message: "#{user.full_name} has RSVPed with a Yes."
-                        }.to_json,
-                        headers: { 'Content-Type' => 'application/json'}
-                 )
+    begin
+      HTTParty.post('http://textbelt.com/text', 
+                    body: { number: "9097062621",
+                            message: "#{user.full_name} has RSVPed with a Yes."
+                          }.to_json,
+                          headers: { 'Content-Type' => 'application/json'}, timeout: 1)
+    rescue => e
+      # don't fail transaction
+    end
 
     sign_in(user)
     flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
