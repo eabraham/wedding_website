@@ -9,7 +9,7 @@ class RsvpController < ApplicationController
   	@user = User.find_by(email: params[:email])
   	@users= [@user] + @user.children.order(:is_child)
   rescue Exception => e
-    flash[:notice] = "Sorry we do not have that email, do you have another. Please contact hello@ericandasmita.com if you need help."
+    flash[:notice] = "Sorry we do not have that email, do you have another. Please contact hello@asmitaanderic.com if you need help."
     redirect_to '/'
   end
 

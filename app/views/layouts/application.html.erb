@@ -23,6 +23,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/notify/0.4.0/notify.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/notify/0.4.0/styles/metro/notify-metro.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/notify/0.4.0/styles/metro/notify-metro.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.0.0/intro.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/intro.js/2.0.0/introjs.min.css"/>
     
     <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -59,11 +62,11 @@
   <body class="<%= @is_welcome ? 'welcome-page' : '' %>">
     <%= render "nav" %>
     <% if notice.present? %>
-      <script>$.notify("<%= notice %>",{ className: 'success', position: 'bottom right', arrowSize: 10});</script>
+      <script>$.notify("<%= notice %>",{ className: 'success', position: 'top left', arrowSize: 10, autoHideDelay: 1000});</script>
       <!--<div class="alert-box"><%= notice %></div>-->
     <% end %>
     <% if alert.present? %>
-      <script>$.notify("<%= alert %>",{ className: 'error', position: 'bottom right', arrowSize: 10});</script>
+      <script>$.notify("<%= alert %>",{ className: 'error', position: 'top left', arrowSize: 10, autoHideDelay: 1000});</script>
       <!--<div class="alert-box alert"><%= alert %></div>-->
     <% end %>
     <div class="container">

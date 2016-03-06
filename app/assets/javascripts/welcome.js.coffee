@@ -1,4 +1,6 @@
 $(document).ready ->
+  introJs().start();
+
   $('.slideshow').slick({
     infinite: true,
     slidesToShow: 1,

@@ -1,5 +1,5 @@
 class Invitation < ActionMailer::Base
-  default from: "admin@ericandasmita.com"
+  default from: "admin@asmitaanderic.com"
 
   def rsvp_email(user)
     @user = user
