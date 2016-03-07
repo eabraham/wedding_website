@@ -19,3 +19,9 @@
     top:2.8125rem;
   }
 }
+
+.notifyjs-bootstrap-error, .notifyjs-bootstrap-base, .notifyjs-container {
+  height: 60px;
+  font-size: 30px;
+  background-image: none !important;
+}

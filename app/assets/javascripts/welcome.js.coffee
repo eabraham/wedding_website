@@ -5,6 +5,7 @@ $(document).ready ->
              .setOption('showButtons',false)
              .setOption('tooltipPosition','left')
              .setOption('showStepNumbers', false)
+             .setOption('arrowShow', false)
              .start()
 
   $('.slideshow').slick({
