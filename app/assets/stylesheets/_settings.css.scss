@@ -8,13 +8,17 @@ body, .raleway {
 .oswald {
   font-family: 'Oswald', sans-serif !important;
 }
+.short-button {
+  padding: 10px 32px 10px 32px !important;
+}
 
 h1, h2, h3, h4 {
   font-family: 'Petit Formal Script', cursive !important;
 }
 
-span.bold {
+span.bold, a.bold {
 	font-weight: bold;
 } 
+
 
 @import "foundation";

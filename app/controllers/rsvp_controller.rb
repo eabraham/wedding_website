@@ -8,6 +8,11 @@ class RsvpController < ApplicationController
   def wedding_rsvp
   	@user = User.find_by(email: params[:email])
   	@users= [@user] + @user.children.order(:is_child)
+
+    if @user.rsvp
+      flash[:notice] = "You have already submitted an RSVP."
+      redirect_to '/sign_in'
+    end
   rescue Exception => e
     flash[:notice] = "Sorry we do not have that email, do you have another. Please contact hello@asmitaanderic.com if you need help."
     redirect_to '/'
@@ -66,6 +71,8 @@ class RsvpController < ApplicationController
     flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
     if [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
       redirect_to '/rsvp/nyc'
+    elsif [:eric_family, :asmita_friends].include?(current_user.group_name)
+      redirect_to '/rsvp/brunch'
     else
   	  redirect_to '/'
     end
@@ -133,5 +140,35 @@ class RsvpController < ApplicationController
     end
 
     redirect_to '/rsvp/hotel'    
+  end
+
+  def brunch_rsvp
+    @users = [current_user] + current_user.children.order(:is_child)
+  end
+
+
+  def rsvp_brunch_submit
+    user_ids = params.map do |p|
+      match = p.to_s.match(/user-([0-9]+)-brunch/)
+      if match
+        match[1]
+      else
+        nil
+      end
+    end.select(&:present?)
+    rsvped = []
+    user_ids.each do |user_id|
+      c_user = User.find(user_id)
+      c_user.brunch_rsvp = params["user-#{user_id}-brunch"]
+      c_user.save!
+      rsvped << user_id if c_user.brunch_rsvp
+    end
+    if rsvped.any?
+      flash[:notice] = "Cannot wait to see you at the brunch."
+    else
+      flash[:notice] = "Sorry you could not make the festivities."
+    end
+
+    redirect_to '/'    
   end
 end

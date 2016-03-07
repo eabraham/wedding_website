@@ -47,8 +47,9 @@
     <section class="top-bar-section">
       <ul class="right">
         <% if current_user.nil? %>
-          <a href="#" data-reveal-id="myModal" class="oswald alert button" data-step="1" data-intro="Thanks for visiting. Please RSVP first." onclick="javascript:introJs().exit();">RSVP</a>
-          <%= link_to 'Login', :sign_in, class: "oswald alert button" %>
+            <a href="#" class="oswald purple-button alert button">Please RSVP by April 11th</a>
+            <a href="#" data-reveal-id="myModal" class="oswald alert button" data-step="1" data-intro="Thanks for visiting. Please RSVP first." onclick="javascript:introJs().exit();">RSVP</a>
+            <%= link_to 'Login', :sign_in, class: "oswald alert button" %>
         <% else %>
         <li class="">
           <span>Welcome <%= current_user.full_name %></span>

@@ -1,7 +1,11 @@
 $(document).ready ->
   #debugger
   if (window.location.pathname == '/')
-    introJs().start()
+    introJs().setOption('showBullets', false)
+             .setOption('showButtons',false)
+             .setOption('tooltipPosition','left')
+             .setOption('showStepNumbers', false)
+             .start()
 
   $('.slideshow').slick({
     infinite: true,

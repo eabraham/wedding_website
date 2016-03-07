@@ -8,9 +8,11 @@ Ericandasmita::Application.routes.draw do
   get "rsvp/index" => 'rsvp#index'
   get "rsvp/new" => 'rsvp#wedding_rsvp'
   get "rsvp/nyc" => 'rsvp#nyc_rsvp'
+  get "rsvp/brunch" => 'rsvp#brunch_rsvp'
   get "rsvp/hotel" => 'rsvp#hotel_rsvp'
   match "rsvp/submit", to: 'rsvp#submit', via: [:post]
   match "rsvp_nyc/submit", to: 'rsvp#rsvp_nyc_submit', via: [:post]
+  match "rsvp_brunch/submit", to: 'rsvp#rsvp_brunch_submit', via: [:post]
   match "rsvp_hotel/submit", to: 'rsvp#rsvp_hotel_submit', via: [:post]
   get "wedding_party/index"
   get "gallery/index"
