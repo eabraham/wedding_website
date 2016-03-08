@@ -1,5 +1,5 @@
 ActiveAdmin.register Image do
-  permit_params :imageable_id, :imageable_type, :photo, :aws_url
+  permit_params :imageable_id, :imageable_type, :photo, :aws_url, :order
 
   index do
     selectable_column
