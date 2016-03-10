@@ -71,7 +71,7 @@ class RsvpController < ApplicationController
     flash[:notice] = "Thank you for your RSVP, we cannot wait to share our special day with you." if rsvped.any?
     if [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
       redirect_to '/rsvp/nyc'
-    elsif [:eric_family, :asmita_friends].include?(current_user.group_name)
+    elsif [:eric_family, :asmita_friends, :eric_friends].include?(current_user.group_name)
       redirect_to '/rsvp/brunch'
     else
   	  redirect_to :big_day_index
