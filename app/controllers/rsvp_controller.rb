@@ -169,6 +169,6 @@ class RsvpController < ApplicationController
       flash[:notice] = "Sorry you could not make the festivities."
     end
 
-    redirect_to '/'    
+    redirect_to :big_day_index
   end
 end
