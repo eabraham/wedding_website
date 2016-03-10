@@ -6,7 +6,7 @@ class RsvpController < ApplicationController
   end
 
   def wedding_rsvp
-  	@user = User.find_by(email: params[:email])
+  	@user = User.find_by(email: params[:email].downcase)
   	@users= [@user] + @user.children.order(:is_child)
 
     if @user.rsvp
@@ -74,7 +74,7 @@ class RsvpController < ApplicationController
     elsif [:eric_family, :asmita_friends].include?(current_user.group_name)
       redirect_to '/rsvp/brunch'
     else
-  	  redirect_to '/'
+  	  redirect_to :big_day_index
     end
   end
 
