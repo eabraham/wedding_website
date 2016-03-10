@@ -7,7 +7,7 @@ class RsvpController < ApplicationController
 
   def wedding_rsvp
   	@user = User.find_by(email: params[:email].downcase)
-  	@users= [@user] + @user.children.order(:is_child)
+  	@users= [@user] + @user.children.order(:id)
 
     if @user.rsvp
       flash[:notice] = "You have already submitted an RSVP."
@@ -79,7 +79,7 @@ class RsvpController < ApplicationController
   end
 
   def hotel_rsvp
-    @users = [current_user] + current_user.children.order(:is_child)
+    @users = [current_user] + current_user.children.order(:id)
     @friday = [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
     @saturday = [:asmita_family, :asmita_family_friend].include?(current_user.group_name)
     @sunday = @users.select { |u| u.brunch_rsvp || u.tour_rsvp || u.dinner_rsvp }.any?
@@ -110,7 +110,7 @@ class RsvpController < ApplicationController
   end
 
   def nyc_rsvp
-    @users = [current_user] + current_user.children.order(:is_child)
+    @users = [current_user] + current_user.children.order(:id)
   end
 
 
@@ -143,7 +143,7 @@ class RsvpController < ApplicationController
   end
 
   def brunch_rsvp
-    @users = [current_user] + current_user.children.order(:is_child)
+    @users = [current_user] + current_user.children.order(:id)
   end
 
 
