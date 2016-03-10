@@ -14,7 +14,8 @@
         <%= image_tag "ganesh.svg", class: "ganesh-logo" %>
       </section>
     </nav>
-
+   <% if (['/rsvp/new','/rsvp/hotel','/rsvp/nyc'].include?(request.path.to_s)) %>
+   <% else %>
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Menu</label></li>
@@ -26,6 +27,7 @@
         <li><%= link_to 'Guestbook', :guestbook_index %></li>
       </ul>
     </aside>
+   <% end %>
 
     <section class="main-section">
       <!-- content goes here -->
