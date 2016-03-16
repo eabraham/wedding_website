@@ -5,6 +5,10 @@ class RsvpController < ApplicationController
 
   end
 
+  def logout_redirect
+    sign_out_and_redirect(current_user)
+  end
+
   def wedding_rsvp
   	@user = User.find_by(email: params[:email].downcase)
   	@users= [@user] + @user.children.order(:id)

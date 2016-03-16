@@ -1,5 +1,7 @@
 Ericandasmita::Application.routes.draw do
 
+  get "fix_url"=>"rsvp#logout_redirect"
+
   get "travel/index"
   get "big_day/index"
   get "guestbook/index" => 'guestbook#index'
